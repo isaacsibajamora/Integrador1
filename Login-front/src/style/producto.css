@@ -10,6 +10,7 @@
     --blanco: #ffffff;
 }
 
+
 * {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     box-sizing: border-box;
@@ -20,6 +21,7 @@
 body {
     background-color: #f8f9fa;
     padding-top: 80px;
+     overflow-x: hidden; /* Previene scroll horizontal */
 }
 
 /*----- NAVBAR -----*/
@@ -93,10 +95,9 @@ body {
 
 /*----- FOOTER -----*/
 .footer-custom {
+   width: 100vw;
     background-color: var(--azul-principal);
     color: var(--blanco);
-    padding: 10px 0;
-    margin-top: 40px;
     border-top: 10px solid var(--verde-principal);
 }
 

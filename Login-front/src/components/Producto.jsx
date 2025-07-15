@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/producto.css';
 import logo from '../assets/injacom-logo-sinfondo.png';
 
+
 const Producto = () => {
     return (
         <>
