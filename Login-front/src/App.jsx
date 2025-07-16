@@ -9,8 +9,8 @@ import './style/producto.css';
 
 
 function App() {
-  //return <Login />;
- //return <Producto />;
+  return <Login />;
+ return <Producto />;
    return <Destacado />;
   
 }
