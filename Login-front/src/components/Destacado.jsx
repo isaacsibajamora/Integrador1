@@ -13,8 +13,6 @@ const Destacado = () => {
         </div>
       </nav>
 
-    
-
       <footer className="footer-custom1 text-center mt-5">
         <div className="container py-3">
           <p>

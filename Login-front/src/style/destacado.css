@@ -35,10 +35,12 @@
 }
 
 .footer-custom1 {
-   width: 100vw;
+    width: 100vw;
     background-color: var(--azul-principal);
     color: var(--blanco);
     border-top: 10px solid var(--verde-principal);
+    text-align: center;
+    margin-top: auto;
 }
 
 .footer-custom1 p {
