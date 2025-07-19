@@ -37,7 +37,7 @@ const Producto = () => {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar" style={{cursor:"default"}}>
         <div className="nav-container d-flex justify-content-between align-items-center">
           <img src={logo} alt="Injacom Logo" className="nav-logo img-fluid" />
           <div className="user-menu">

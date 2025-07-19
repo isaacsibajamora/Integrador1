@@ -378,9 +378,12 @@ body {
 }
 
 .nav-container {
-  display: flex;
+   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 0 1rem; /* margen interior opcional */
 }
 
 .nav-logo {
@@ -389,15 +392,17 @@ body {
 }
 
 .user-menu {
-  position: relative;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
   cursor: pointer;
 }
 
 .user-icon {
   font-size: 1.8rem;
   color: #01243a;
-  margin-left: 80rem;
 }
+
 
 /* Modal styles */
 
