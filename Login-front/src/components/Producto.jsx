@@ -125,7 +125,7 @@ const Producto = () => {
             className="form-control me-2 mb-2 mb-md-0"
             placeholder="Buscar producto..."
           />
-          <button className="btn btn-outline-primary" type="submit">
+          <button className="search-btn" type="submit">
             <i className="bi bi-search" />
           </button>
         </form>

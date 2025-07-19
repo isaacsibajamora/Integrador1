@@ -55,18 +55,48 @@ body {
     margin: 0 auto 2rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #ccc;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.search-bar button {
-    border-color: var(--negro);
+.search-bar input[type="text"] {
+    flex: 1 1 300px;
+    padding: 8px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 48px; /* ← igual que el botón */
+    box-sizing: border-box;
+}
+
+.search-btn {
+    padding: 8px 20px;
+    background-color: transparent;
+    border: 2px solid var(--negro);
     color: var(--negro);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px; /* ← igual que el input */
+    box-sizing: border-box;
 }
 
-.search-bar button:hover {
+.search-btn:hover {
     background-color: var(--negro);
     color: var(--blanco);
     border-color: var(--negro);
 }
+
+/* Ícono botón */
+.search-btn i {
+    font-size: 1.2rem;
+}
+
 
 /*----- CARD PRODUCTOS -----*/
 .card {
@@ -114,31 +144,32 @@ body {
 
 /*----- RESPONSIVE OPTIMIZACIÓN -----*/
 @media (max-width: 576px) {
-    .search-bar {
-        flex-direction: column;
-        align-items: center;
-    }
+  .search-bar {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .search-bar input,
-    .search-bar button {
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
+  .search-bar input,
+  .search-bar button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
 
-    .nav-logo {
-        width: 80px;
-    }
+  .nav-logo {
+    width: 80px;
+  }
 
-    .card-img-top {
-        height: 150px;
-    }
+  .card-img-top {
+    height: 150px;
+  }
 
-    .footer-custom p,
-    .footer-custom strong {
-        font-size: 0.9rem;
-        text-align: center;
-    }
+  .footer-custom p,
+  .footer-custom strong {
+    font-size: 0.9rem;
+    text-align: center;
+  }
 }
+
 .inj-wrapper {
   position: relative;
   width: 750px;
@@ -427,6 +458,7 @@ body {
   transform: scale(1);
   pointer-events: auto;
 }
+
 .modal.hidden {
   display: none;
 }
