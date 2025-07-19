@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../style/producto.css';
 import logo from '../img/injacom-logo-sinfondo.png';
 
-const Producto = () => {
+const ProductoU = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [showClass, setShowClass] = useState(false);
-  
+
 
   const abrirModal = () => {
     setIsClosing(false);
@@ -16,17 +17,17 @@ const Producto = () => {
     setShowClass(false);
 
     setTimeout(() => {
-    setShowClass(true);
-  }, 10);
+      setShowClass(true);
+    }, 10);
   };
 
   const cerrarModal = () => {
     setIsClosing(true);
     setShowClass(false);
     setTimeout(() => {
-    setModalVisible(false);
-    setIsClosing(false);
-  }, 400); // mismo tiempo que la transición en CSS
+      setModalVisible(false);
+      setIsClosing(false);
+    }, 400); // mismo tiempo que la transición en CSS
   };
 
   const manejarClickFuera = (e) => {
@@ -37,19 +38,23 @@ const Producto = () => {
 
   return (
     <>
-      <nav className="navbar" style={{cursor:"default"}}>
-        <div className="nav-container d-flex justify-content-between align-items-center">
+      <nav className="navbar" style={{ cursor: "default" }}>
+        <div className="nav-container d-flex justify-content-between align-items-center w-100 px-3">
           <img src={logo} alt="Injacom Logo" className="nav-logo img-fluid" />
-          <div className="user-menu">
-            <i
-              className="bi bi-person-circle user-icon"
+
+          <div className="d-flex align-items-center gap-3">
+            {/* Botón Registrar Usuario */}
+            <button
+              className="btn btn-outline-success d-flex align-items-center gap-2"
               onClick={abrirModal}
-              style={{ cursor: "pointer" }}
-              title="Regístrate"
-            ></i>
+              title="Registrar Usuario"
+            >
+              <i className="bi bi-person-plus-fill"></i> Registrar Usuario
+            </button>
           </div>
         </div>
       </nav>
+
 
       {/* Modal */}
       {modalVisible && (
@@ -158,4 +163,4 @@ const Producto = () => {
   );
 };
 
-export default Producto;
+export default ProductoU;

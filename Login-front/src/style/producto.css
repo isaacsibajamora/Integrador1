@@ -124,6 +124,26 @@ body {
     color: var(--negro);
 }
 
+/*Boton ver mas*/
+
+.show-btn {
+    padding: 8px 20px;
+    background-color: var(--verde-principal);
+    border: 2px solid var(--negro);
+    color: var(--negro);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    height: 48px;
+    box-sizing: border-box;
+}
+
+.show-btn:hover {
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+    border-color: var(--negro);
+}
+
 /*----- FOOTER -----*/
 .footer-custom {
    width: 100vw;
@@ -486,4 +506,26 @@ body {
   color: #0898d1;
   cursor: pointer;
   z-index: 1001;
+}
+
+/* Estilos para el menú desplegable */
+
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  top: 55px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.user-dropdown.show {
+  max-height: 200px;
+  opacity: 1;
 }
