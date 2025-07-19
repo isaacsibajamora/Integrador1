@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../style/producto.css';
-import logo from '../assets/injacom-logo-sinfondo.png';
+import logo from '../img/injacom-logo-sinfondo.png';
 
 const Producto = () => {
   const [modalVisible, setModalVisible] = useState(false);

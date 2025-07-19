@@ -1,6 +1,6 @@
 import "../style/destacado.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../assets/injacom-logo-sinfondo.png";
+import logo from "../img/injacom-logo-sinfondo.png";
 import React, { useState } from "react";
 
 const Destacado = () => {

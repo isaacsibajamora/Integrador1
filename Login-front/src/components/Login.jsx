@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../style/style1.css';
-import logo from '../assets/injacom-logo-sinfondo.png';
+import logo from '../img/injacom-logo-sinfondo.png';
 
 const Login = () => {
   const [usuario, setUsuario] = useState('');
