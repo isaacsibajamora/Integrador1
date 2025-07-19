@@ -59,15 +59,15 @@ const Producto = () => {
               &times;
             </span>
 
-            <div className="wrapper">
-              <span className="bg-animate"></span>
-              <span className="bg-animate2"></span>
+            <div className="inj-wrapper">
+              <span className="inj-bg-animate"></span>
+              <span className="inj-bg-animate2"></span>
 
-              <div className="form-box register">
+              <div className="inj-form-box inj-register">
                 <img
                   src={logo}
                   alt="Logo"
-                  className="logo animation"
+                  className="inj-logo inj-animation"
                   style={{
                     "--i": 16,
                     "--j": 0,
@@ -76,28 +76,28 @@ const Producto = () => {
                   }}
                 />
 
-                <h2 className="animation" style={{ "--i": 17, "--j": 1 }}>
+                <h2 className="inj-animation" style={{ "--i": 17, "--j": 1 }}>
                   Registrar Usuario
                 </h2>
                 <form action="#">
-                  <div className="input-box animation" style={{ "--i": 18, "--j": 2 }}>
+                  <div className="inj-input-box inj-animation" style={{ "--i": 18, "--j": 2 }}>
                     <input type="text" required />
                     <label>Usuario</label>
                     <i className="bi bi-person-fill"></i>
                   </div>
-                  <div className="input-box animation" style={{ "--i": 19, "--j": 3 }}>
+                  <div className="inj-input-box inj-animation" style={{ "--i": 19, "--j": 3 }}>
                     <input type="text" required />
                     <label>Email</label>
                     <i className="bi bi-envelope-fill"></i>
                   </div>
-                  <div className="input-box animation" style={{ "--i": 20, "--j": 4 }}>
+                  <div className="inj-input-box inj-animation" style={{ "--i": 20, "--j": 4 }}>
                     <input type="password" required />
                     <label>Contraseña</label>
                     <i className="bi bi-lock-fill"></i>
                   </div>
                   <button
                     type="submit"
-                    className="btn animation"
+                    className="inj-btn inj-animation"
                     style={{ "--i": 21, "--j": 4 }}
                   >
                     Registrar
@@ -105,11 +105,11 @@ const Producto = () => {
                 </form>
               </div>
 
-              <div className="info-text register">
-                <h2 className="animation" style={{ "--i": 17, "--j": 0 }}>
+              <div className="inj-info-text inj-register">
+                <h2 className="inj-animation" style={{ "--i": 17, "--j": 0 }}>
                   Bienvenido a Injacom
                 </h2>
-                <p className="animation" style={{ "--i": 18, "--j": 1 }}>
+                <p className="inj-animation" style={{ "--i": 18, "--j": 1 }}>
                   Tecnología confiable y soluciones a tu alcance.
                 </p>
               </div>
