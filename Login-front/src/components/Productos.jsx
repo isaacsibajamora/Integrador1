@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../style/producto.css';
+import Menu from "../components/Menu"; 
 import logo from '../img/injacom-logo-sinfondo.png';
 
 const Producto = () => {
@@ -54,7 +55,8 @@ const Producto = () => {
           </div>
         </div>
       </nav>
-
+     
+       <Menu />
 
       {/* Modal */}
       {modalVisible && (

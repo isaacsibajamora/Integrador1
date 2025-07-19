@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+*{
+    font-family: "Poppins, sans-serif";
+}
+
+.inj-sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 96.3%;
+    left: 0;
+    background: #fff;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.inj-sidebar:hover {
+  width: 280px;
+}
+
+.inj-sidebar ul {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+.inj-sidebar .nav-item{
+    position: relative;
+    margin-left: 10px;
+    top: 12px;
+}
+
+.inj-sidebar .inj-logo {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 0 9px;
+  text-align: center;
+}
+
+.inj-sidebar .inj-logo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.inj-sidebar .inj-logo span{
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.inj-sidebar a {
+    position: relative;
+    color: rgb(85, 83, 83);
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.inj-sidebar a:hover {
+  background: #eee;
+}
+
+.inj-sidebar .fas {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.inj-sidebar .logout {
+    position: absolute;
+    bottom: 0;
+}
