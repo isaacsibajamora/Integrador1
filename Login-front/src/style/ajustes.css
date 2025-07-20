@@ -1,27 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap');
 
 :root {
-    --azul-oscuro: #091337;
-    --azul-principal: #00699e;
-    --verde-principal: #c1d72e;
-    --verde-oscuro: #47b648;
-    --gris: #939597;
-    --negro: #000000;
-    --blanco: #ffffff;
-   --i: 0;
-   --j: 0;
+  --azul-oscuro: #091337;
+  --azul-principal: #00699e;
+  --verde-principal: #c1d72e;
+  --verde-oscuro: #47b648;
+  --gris: #939597;
+  --negro: #000000;
+  --blanco: #ffffff;
+  --i: 0;
+  --j: 0;
 }
 
 * {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  font-size: 1em;
+  background-color: var(--blanco);
+  color: var(--negro);
+  transition: all 0.3s ease;
+}
+
+/* === ESTILOS DE ACCESIBILIDAD === */
 body.contraste {
   background-color: var(--azul-oscuro);
   color: var(--blanco);
+}
+
+body.contraste a {
+  color: var(--verde-principal);
 }
 
 body.resaltado a {
@@ -38,13 +50,15 @@ body.espaciado-texto {
   letter-spacing: 0.05em;
 }
 
+/* === CONTENEDOR PRINCIPAL === */
 .pagina-accesibilidad {
   padding: 2rem;
   max-width: 900px;
   margin: auto;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  transition: font-size 0.3s ease;
 }
 
+/* === BOTONES DE ACCESIBILIDAD === */
 .opciones-accesibilidad {
   display: flex;
   flex-wrap: wrap;
@@ -69,4 +83,3 @@ body.espaciado-texto {
   background-color: var(--azul-oscuro);
   transform: scale(1.05);
 }
-
