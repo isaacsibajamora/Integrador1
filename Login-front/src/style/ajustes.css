@@ -38,18 +38,6 @@ body.espaciado-texto {
   letter-spacing: 0.05em;
 }
 
-body.cursor-grande {
-  cursor: url('https://cdn.custom-cursor.com/packs/1195/big-blue-cursor-pointer.cur'), auto;
-}
-
-body.texto-centrado {
-  text-align: center;
-}
-
-body.saturacion {
-  filter: saturate(180%);
-}
-
 .pagina-accesibilidad {
   padding: 2rem;
   max-width: 900px;
@@ -82,10 +70,3 @@ body.saturacion {
   transform: scale(1.05);
 }
 
-main.contenido-prueba {
-  background: #f5faff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 105, 158, 0.2);
-  color: var(--negro);
-}
