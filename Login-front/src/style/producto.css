@@ -217,29 +217,29 @@ body {
 }
 
 
-.wrapper .form-box.register .animation,
-.wrapper .info-text.register .animation {
+.inj-wrapper .inj-form-box.inj-register .inj-animation,
+.inj-wrapper .inj-info-text.inj-register .inj-animation {
   opacity: 1;
   transform: translateX(0);
   filter: blur(0);
   pointer-events: auto; /* importante */
 }
 
-.form-box h2 {
+.inj-form-box h2 {
   font-size: 32px;
   color: #01243a;
   text-align: center;
   margin-bottom: 20px;
 }
 
-.form-box .input-box {
+.inj-form-box .inj-input-box {
   position: relative;
   width: 100%;
   height: 50px;
   margin: 25px 0;
 }
 
-.input-box input {
+.inj-input-box input {
   width: 100%;
   height: 100%;
   background: transparent;
@@ -253,12 +253,12 @@ body {
   transition: 0.5s;
 }
 
-.input-box input:focus,
-.input-box input:valid {
+.inj-input-box input:focus,
+.inj-input-box input:valid {
   border-bottom-color: #0898d1;
 }
 
-.input-box label {
+.inj-input-box label {
   position: absolute;
   top: 50%;
   left: 0;
@@ -269,13 +269,13 @@ body {
   transition: 0.5s;
 }
 
-.input-box input:focus ~ label,
-.input-box input:valid ~ label {
+.inj-input-box input:focus ~ label,
+.inj-input-box input:valid ~ label {
   top: -5px;
   color: #0898d1;
 }
 
-.input-box i {
+.inj-input-box i {
   position: absolute;
   top: 50%;
   right: 0;
@@ -285,12 +285,12 @@ body {
   transition: 0.5s;
 }
 
-.input-box input:focus ~ i,
-.input-box input:valid ~ i {
+.inj-input-box input:focus ~ i,
+.inj-input-box input:valid ~ i {
   color: #0898d1;
 }
 
-.btn {
+.inj-btn {
   position: relative;
   width: 100%;
   height: 45px;
@@ -306,7 +306,7 @@ body {
   overflow: hidden;
 }
 
-.btn::before {
+.inj-btn::before {
   content: '';
   position: absolute;
   top: -100%;
@@ -318,11 +318,11 @@ body {
   transition: 0.5s;
 }
 
-.btn:hover::before {
+.inj-btn:hover::before {
   top: 0;
 }
 
-.wrapper .info-text {
+.inj-wrapper .inj-info-text {
   position: relative;
   width: 50%;
   height: 100%;
@@ -335,7 +335,7 @@ body {
   color: white;
 }
 
-.wrapper .info-text.register .animation {
+.inj-wrapper .inj-info-text.inj-register .inj-animation {
   transform: translateX(0);
   opacity: 1;
   filter: blur(0);
@@ -343,7 +343,7 @@ body {
   transition-delay: calc(0.1s * var(--j));
 }
 
-.wrapper .info-text.register {
+.inj-wrapper .inj-info-text.inj-register {
   position: relative;
   width: 50%;
   height: 100%;
@@ -355,7 +355,7 @@ body {
   z-index: 1; /* asegura que esté encima del fondo animado */  
 }
 
-.animation {
+.inj-animation {
   opacity: 0;
   transform: translateX(50px);
   filter: blur(5px);
@@ -363,7 +363,7 @@ body {
   transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
   transition-delay: calc(0.1s * var(--j));
 }
-.info-text h2 {
+.inj-info-text h2 {
   font-size: 36px;
   color: #B0BF39;
   line-height: 1.3;
@@ -371,7 +371,7 @@ body {
   margin-bottom: 15px;
 }
 
-.info-text p {
+.inj-info-text p {
   font-size: 15px;
   color: #fff;
   max-width: 60%; /* o prueba con 80% si aún se pasa */
@@ -381,7 +381,7 @@ body {
 }
 
 /* Fondo animado movido a la derecha */
-.wrapper .bg-animate {
+.inj-wrapper .inj-bg-animate {
   position: absolute;
   top: -4px;
   left: auto;
@@ -397,7 +397,7 @@ body {
   border-radius: 0 40px 40px 0;
 }
 
-.wrapper .bg-animate2 {
+.inj-wrapper .inj-bg-animate2 {
   position: absolute;
   top: 100%;
   left: auto;
