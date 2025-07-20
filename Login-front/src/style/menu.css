@@ -15,7 +15,42 @@
     transition: width 0.2s linear;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
+@media (max-width: 1440px) {
+    .inj-sidebar {
+        height: 100.6%;
+    }
+}
+@media (max-width: 768px) {
+    .inj-sidebar {
+        height: 115%;
+    }
+}
+@media (max-width: 836px) and (min-width: 633px) {
+    .inj-sidebar {
+        height: 104.4%;
+    }
+}
+@media (max-width: 767px) and (min-width: 633px) {
+    .inj-sidebar {
+        height: 102%;
+    }
+}
 
+@media (min-width: 577px) and (max-width: 633px) {
+    .inj-sidebar {
+        height: 102%;
+    }
+}
+@media (min-width: 576px) and (max-width: 633px) {
+    .inj-sidebar {
+        height: 147.4%;
+    }
+}
+@media (min-width: 150px) and (max-width: 444px) {
+    .inj-sidebar {
+        height: 233.9%;
+    }
+}
 .inj-sidebar:hover {
   width: 280px;
 }
