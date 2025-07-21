@@ -122,7 +122,7 @@ const Login = () => {
             ¡Bienvenido a Injacom!
           </h2>
           <p className="animation" style={{ '--i': 1, '--j': 21 }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing.
+            Tecnología confiable y soluciones a tu alcance.
           </p>
         </div>
 

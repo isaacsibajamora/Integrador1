@@ -186,7 +186,7 @@ body {
         text-align: center;
     }
 }
-.wrapper {
+.inj-wrapper {
   position: relative;
   width: 750px;
   height: 500px;
@@ -199,13 +199,13 @@ body {
   /* Para que form-box y info-text estén lado a lado */
 }
 
-.logo {
+.inj-logo {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
 }
 
-.wrapper .form-box {
+.inj-wrapper .inj-form-box {
   position: relative;
   width: 50%;
   height: 100%;
