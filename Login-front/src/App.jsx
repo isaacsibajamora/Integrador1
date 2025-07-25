@@ -1,19 +1,21 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Login from './components/Login';
+import Login from './pages/Login';
 import './style/style1.css';
-import Productos from './components/Productos';
+import Productos from './pages/Productos';
 import Menu from './components/Menu';
 import Ajustes from './pages/Ajustes';
+import ProductoU from './pages/ProductoU';
 import './style/producto.css';
 
 
 function App() {
   //return <Login />;
   return <Productos />;
-  return <Ajustes/>;
-  return <Productos />;
+  
+  //return <Ajustes/>;
+  return <ProductoU/>
   return <Menu/>;
 }
 
