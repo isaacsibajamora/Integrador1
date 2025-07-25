@@ -13,9 +13,8 @@ import './style/producto.css';
 function App() {
   //return <Login />;
   return <Productos />;
-  
-  //return <Ajustes/>;
   return <ProductoU/>
+  return <Ajustes/>;
   return <Menu/>;
 }
 
