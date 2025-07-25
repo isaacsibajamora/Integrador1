@@ -15,42 +15,26 @@
     transition: width 0.2s linear;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
-@media (max-width: 1440px) {
+@media (max-width: 1921px) {
     .inj-sidebar {
-        height: 100.6%;
-    }
-}
-@media (max-width: 768px) {
-    .inj-sidebar {
-        height: 115%;
-    }
-}
-@media (max-width: 836px) and (min-width: 633px) {
-    .inj-sidebar {
-        height: 104.4%;
-    }
-}
-@media (max-width: 767px) and (min-width: 633px) {
-    .inj-sidebar {
-        height: 102%;
+        height: 100.6% !important;
     }
 }
 
-@media (min-width: 577px) and (max-width: 633px) {
-    .inj-sidebar {
-        height: 102%;
-    }
+/* Laptop grande: 1366px a 1920px */
+@media (min-width: 1366px) and (max-width: 1920px) {
+  .inj-sidebar {
+    height: 87.2% !important;
+  }
 }
-@media (min-width: 576px) and (max-width: 633px) {
-    .inj-sidebar {
-        height: 147.4%;
-    }
+/* Laptop mediana: 1024px a 1365px */
+@media (min-width: 1024px) and (max-width: 1365px) {
+  .inj-sidebar {
+    height: 87.2% !important;
+  }
 }
-@media (min-width: 150px) and (max-width: 444px) {
-    .inj-sidebar {
-        height: 233.9%;
-    }
-}
+
+
 .inj-sidebar:hover {
   width: 280px;
 }
