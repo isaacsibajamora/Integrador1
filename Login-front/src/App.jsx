@@ -8,6 +8,7 @@ import Productos from './pages/Productos';
 import ProductoU from './pages/ProductoU';
 
 function App() {
+
   return (
     <Router>
       <Routes>
@@ -18,6 +19,7 @@ function App() {
       </Routes>
     </Router>
   );
+
 }
 
 export default App;
