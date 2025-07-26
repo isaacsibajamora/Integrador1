@@ -3,11 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../style/producto.css';
+import Menu from "../components/Menu"; 
 import logo from '../img/injacom-logo-sinfondo.png';
-import { Link } from 'react-router-dom';
 
-
-const ProductoU = () => {
+const Producto = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [showClass, setShowClass] = useState(false);
@@ -56,7 +55,8 @@ const ProductoU = () => {
           </div>
         </div>
       </nav>
-
+     
+       <Menu />
 
       {/* Modal */}
       {modalVisible && (
@@ -141,12 +141,10 @@ const ProductoU = () => {
           <div className="col-sm-6 col-md-4">
             <div className="card h-100 shadow-sm">
               <img src="" className="card-img-top img-fluid" alt="Producto 1" />
-              <div className="card-body">
+              <div className="card-body text-center">
                 <h5 className="card-title">Nombre del Producto 1</h5>
-                <p className="card-text"><strong>SKU:</strong> 12345</p>
                 <p className="card-text"><strong>Precio:</strong> ₡12,000</p>
-                <p className="card-text"><strong>Cantidad disponible:</strong> 25</p>
-                <p className="card-text"><strong>Modelo:</strong> A1</p>
+                <button className="show-btn btn-primary">Ver más</button>
               </div>
             </div>
           </div>
@@ -165,4 +163,4 @@ const ProductoU = () => {
   );
 };
 
-export default ProductoU;
+export default Producto;

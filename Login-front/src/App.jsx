@@ -1,21 +1,31 @@
+// src/App.jsx
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Login from './pages/Login';
-import './style/style1.css';
-import Productos from './pages/Productos';
-import Menu from './components/Menu';
-import Ajustes from './pages/Ajustes';
-import ProductoU from './pages/ProductoU';
-import './style/producto.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Login from './pages/Login';
+import Ajustes from './pages/Ajustes';
+import Productos from './pages/Productos';
+import ProductoU from './pages/ProductoU';
 
 function App() {
+<<<<<<< HEAD
   //return <Login />;
   return <Productos />;
   return <ProductoU/>
   return <Ajustes/>;
   return <Menu/>;
+=======
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/ajustes" element={<Ajustes />} />
+        <Route path="/productos" element={<Productos />} />
+        <Route path="/productou" element={<ProductoU />} />
+      </Routes>
+    </Router>
+  );
+>>>>>>> master
 }
 
 export default App;
