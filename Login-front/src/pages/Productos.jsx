@@ -5,6 +5,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../style/producto.css';
 import Menu from "../components/Menu"; 
 import logo from '../img/injacom-logo-sinfondo.png';
+import { Link } from 'react-router-dom';
+
 
 const Producto = () => {
   const [modalVisible, setModalVisible] = useState(false);
