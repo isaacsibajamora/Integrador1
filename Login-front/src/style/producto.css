@@ -126,7 +126,8 @@ body {
 .show-btn {
     padding: 8px 20px;
     background-color: var(--verde-principal);
-    border: 2px solid var(--negro);
+    /*border: 2px solid var(--negro);*/
+    border: none;
     color: var(--negro);
     border-radius: 5px;
     font-size: 16px;
@@ -136,9 +137,9 @@ body {
 }
 
 .show-btn:hover {
-    background-color: var(--verde-oscuro);
+    background-color: var(--verde-principal);
     color: var(--blanco);
-    border-color: var(--negro);
+    /*border-color: var(--negro);*/
 }
 
 /*----- FOOTER -----*/

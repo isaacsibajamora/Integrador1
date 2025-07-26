@@ -3,12 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../style/producto.css';
-import Menu from "../components/Menu"; 
+import Menu from "../components/Menu";
 import logo from '../img/injacom-logo-sinfondo.png';
 import { Link } from 'react-router-dom';
 
 
-const Producto = () => {
+const Productos = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [showClass, setShowClass] = useState(false);
@@ -57,8 +57,8 @@ const Producto = () => {
           </div>
         </div>
       </nav>
-     
-       <Menu />
+
+      <Menu />
 
       {/* Modal */}
       {modalVisible && (
@@ -146,7 +146,9 @@ const Producto = () => {
               <div className="card-body text-center">
                 <h5 className="card-title">Nombre del Producto 1</h5>
                 <p className="card-text"><strong>Precio:</strong> ₡12,000</p>
-                <button className="show-btn btn-primary">Ver más</button>
+                <a href="/productou">
+                  <button className="show-btn btn-primary">Ver más</button>
+                </a>
               </div>
             </div>
           </div>
@@ -165,4 +167,4 @@ const Producto = () => {
   );
 };
 
-export default Producto;
+export default Productos;
