@@ -4,6 +4,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../style/producto.css';
 import logo from '../img/injacom-logo-sinfondo.png';
+import { Link } from 'react-router-dom';
+
 
 const ProductoU = () => {
   const [modalVisible, setModalVisible] = useState(false);
