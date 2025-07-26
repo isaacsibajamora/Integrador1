@@ -8,13 +8,7 @@ import Productos from './pages/Productos';
 import ProductoU from './pages/ProductoU';
 
 function App() {
-<<<<<<< HEAD
-  //return <Login />;
-  return <Productos />;
-  return <ProductoU/>
-  return <Ajustes/>;
-  return <Menu/>;
-=======
+
   return (
     <Router>
       <Routes>
@@ -25,7 +19,7 @@ function App() {
       </Routes>
     </Router>
   );
->>>>>>> master
+
 }
 
 export default App;
