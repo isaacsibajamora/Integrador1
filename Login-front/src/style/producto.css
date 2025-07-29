@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap');
+@import url('https;//font.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap'); 
 
 :root {
     --azul-oscuro: #091337;
@@ -13,7 +13,7 @@
 }
 
 * {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -126,7 +126,8 @@ body {
 .show-btn {
     padding: 8px 20px;
     background-color: var(--verde-principal);
-    border: 2px solid var(--negro);
+    /*border: 2px solid var(--negro);*/
+    border: none;
     color: var(--negro);
     border-radius: 5px;
     font-size: 16px;
@@ -136,9 +137,9 @@ body {
 }
 
 .show-btn:hover {
-    background-color: var(--verde-oscuro);
+    background-color: var(--verde-principal);
     color: var(--blanco);
-    border-color: var(--negro);
+    /*border-color: var(--negro);*/
 }
 
 /*----- FOOTER -----*/
