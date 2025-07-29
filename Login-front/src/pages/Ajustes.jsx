@@ -4,6 +4,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import BtnAjustes from '../components/BtnAjustes';
 import '../style/ajustes.css';
+import { Link } from 'react-router-dom';
+
 
 const Ajustes = () => {
     const contenidoRef = React.useRef(null);

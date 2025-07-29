@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../style/style1.css';
 import logo from '../img/injacom-logo-sinfondo.png';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [usuario, setUsuario] = useState('');
