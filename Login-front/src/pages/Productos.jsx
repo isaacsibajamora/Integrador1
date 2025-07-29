@@ -5,14 +5,13 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../style/producto.css';
 import Menu from "../components/Menu";
 import logo from '../img/injacom-logo-sinfondo.png';
+import Registrar from './Registrar'; // Importar el componente Registrar
 import { Link } from 'react-router-dom';
-
 
 const Productos = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [showClass, setShowClass] = useState(false);
-
 
   const abrirModal = () => {
     setIsClosing(false);
@@ -44,9 +43,7 @@ const Productos = () => {
       <nav className="navbar" style={{ cursor: "default" }}>
         <div className="nav-container d-flex justify-content-between align-items-center w-100 px-3">
           <img src={logo} alt="Injacom Logo" className="nav-logo img-fluid" />
-
           <div className="d-flex align-items-center gap-3">
-            {/* Botón Registrar Usuario */}
             <button
               className="btn btn-outline-success d-flex align-items-center gap-2"
               onClick={abrirModal}
@@ -60,70 +57,13 @@ const Productos = () => {
 
       <Menu />
 
-      {/* Modal */}
+      {/* Modal que usa el componente Registrar */}
       {modalVisible && (
-        <div className={`modal ${showClass ? "show" : ""}`} onClick={manejarClickFuera}>
-          <div className="modal-content">
-            <span className="close" onClick={cerrarModal}>
-              &times;
-            </span>
-
-            <div className="inj-wrapper">
-              <span className="inj-bg-animate"></span>
-              <span className="inj-bg-animate2"></span>
-
-              <div className="inj-form-box inj-register">
-                <img
-                  src={logo}
-                  alt="Logo"
-                  className="inj-logo inj-animation"
-                  style={{
-                    "--i": 16,
-                    "--j": 0,
-                    width: "180px",
-                    marginRight: "45px",
-                  }}
-                />
-
-                <h2 className="inj-animation" style={{ "--i": 17, "--j": 1 }}>
-                  Registrar Usuario
-                </h2>
-                <form action="#">
-                  <div className="inj-input-box inj-animation" style={{ "--i": 18, "--j": 2 }}>
-                    <input type="text" required />
-                    <label>Usuario</label>
-                    <i className="bi bi-person-fill"></i>
-                  </div>
-                  <div className="inj-input-box inj-animation" style={{ "--i": 19, "--j": 3 }}>
-                    <input type="text" required />
-                    <label>Email</label>
-                    <i className="bi bi-envelope-fill"></i>
-                  </div>
-                  <div className="inj-input-box inj-animation" style={{ "--i": 20, "--j": 4 }}>
-                    <input type="password" required />
-                    <label>Contraseña</label>
-                    <i className="bi bi-lock-fill"></i>
-                  </div>
-                  <button
-                    type="submit"
-                    className="inj-btn inj-animation"
-                    style={{ "--i": 21, "--j": 4 }}
-                  >
-                    Registrar
-                  </button>
-                </form>
-              </div>
-
-              <div className="inj-info-text inj-register">
-                <h2 className="inj-animation" style={{ "--i": 17, "--j": 0 }}>
-                  Bienvenido a Injacom
-                </h2>
-                <p className="inj-animation" style={{ "--i": 18, "--j": 1 }}>
-                  Tecnología confiable y soluciones a tu alcance.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div
+          className={`modal ${showClass ? 'show' : ''}`}
+          onClick={manejarClickFuera}
+        >
+          <Registrar cerrarModal={cerrarModal} />
         </div>
       )}
 
@@ -146,13 +86,13 @@ const Productos = () => {
               <div className="card-body text-center">
                 <h5 className="card-title">Nombre del Producto 1</h5>
                 <p className="card-text"><strong>Precio:</strong> ₡12,000</p>
-                <a href="/productou">
+                <Link to="/productou">
                   <button className="show-btn btn-primary">Ver más</button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
-          {/* Agrega más productos aquí */}
+          {/* Más productos aquí */}
         </div>
       </div>
 
