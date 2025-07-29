@@ -25,8 +25,8 @@ function App() {
         {/* <Menu /> */}
 
         <Routes>
-          {/*<Route path="/" element={<Login />} />*/}
-          <Route path="/" element={<Productos />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/productos" element={<Productos />} />
           <Route path="/ajustes" element={<Ajustes />} />
           <Route path="/productou" element={<ProductoU />} />
         </Routes>

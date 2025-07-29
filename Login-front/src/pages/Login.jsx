@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import '../style/style1.css';
 import logo from '../img/injacom-logo-sinfondo.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [usuario, setUsuario] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const navigate = useNavigate();
 
   const manejarSubmit = async (e) => {
     e.preventDefault();
@@ -24,6 +25,8 @@ const Login = () => {
       if (data.success) {
         setMensaje(`✅ Bienvenido. Rol: ${data.rol}`);
         // Aquí puedes agregar redirección o guardado en localStorage si quieres
+        navigate('/Productos')
+
       } else {
         setMensaje(`❌ ${data.mensaje}`);
       }
