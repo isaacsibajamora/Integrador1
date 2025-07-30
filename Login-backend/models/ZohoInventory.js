@@ -15,24 +15,42 @@ class ZohoInventory {
     let page = 1;
     const perPage = 200;
     while (true) {
-      const apiResponse = await axios.get('https://www.zohoapis.com/inventory/v1/items', {
-        headers: {
-          Authorization: `Zoho-oauthtoken ${token}`,
-        },
-        params: {
-          organization_id: this.organizationId,
-          page: page,
-          per_page: perPage,
-        },
-      });
-      if (apiResponse.data.code !== 0) {
-        throw new Error(`[${apiResponse.data.code}] ${apiResponse.data.message}`);
+      let apiResponse;
+      try {
+        apiResponse = await axios.get('https://www.zohoapis.com/inventory/v1/items', {
+          headers: {
+            Authorization: `Zoho-oauthtoken ${token}`,
+          },
+          params: {
+            organization_id: this.organizationId,
+            page: page,
+            per_page: perPage,
+          },
+        });
+      } catch (err) {
+        if (err.response) {
+          console.error('❌ Error en respuesta de Zoho Inventory:', err.response.data);
+        } else {
+          console.error('❌ Error al llamar a Zoho Inventory:', err);
+        }
+        throw err;
       }
-      // Mostrar estructura de cada item para depuración
-      console.log('Ejemplo de item recibido de Zoho:', apiResponse.data.items[0]);
+      if (!apiResponse.data || !Array.isArray(apiResponse.data.items)) {
+        console.error('❌ Estructura inesperada en respuesta de Zoho:', apiResponse.data);
+        throw new Error('Estructura inesperada en respuesta de Zoho');
+      }
+      if (apiResponse.data.items.length > 0) {
+        console.log('Ejemplo de item recibido de Zoho:', apiResponse.data.items[0]);
+      } else {
+        console.warn('⚠️ Zoho devolvió una página sin items.');
+      }
       // Mapear imagen si existe
       const items = apiResponse.data.items.map(item => {
         let image_url = null;
+        if (!item || typeof item !== 'object') {
+          console.warn('⚠️ Item con formato inesperado:', item);
+          return null;
+        }
         // Si la API trae la imagen en image_documents, pero solo nombre y tipo
         if (item.image_documents && item.image_documents.length > 0) {
           const doc = item.image_documents[0];
@@ -45,7 +63,7 @@ class ZohoInventory {
           image_url = item.image_url;
         }
         return { ...item, image_url };
-      });
+      }).filter(Boolean);
       allItems = allItems.concat(items);
       if (items.length < perPage) {
         break;
