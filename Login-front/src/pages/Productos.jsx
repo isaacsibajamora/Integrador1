@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -12,6 +12,38 @@ const Productos = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [showClass, setShowClass] = useState(false);
+  const [productos, setProductos] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
+  // Cargar productos desde la API al montar
+
+  // Buscar productos en la API cada vez que cambia la búsqueda
+  // Cargar todos los productos al inicio
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch('http://localhost:3001/api/items');
+        const data = await res.json();
+        setProductos(data);
+      } catch {
+        setProductos([]);
+      }
+    })();
+  }, []);
+
+  // Buscar productos solo al hacer submit
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    const url = busqueda.trim() === ''
+      ? 'http://localhost:3001/api/items'
+      : `http://localhost:3001/api/items?search=${encodeURIComponent(busqueda)}`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      setProductos(data);
+    } catch {
+      setProductos([]);
+    }
+  };
 
   const rol = parseInt(localStorage.getItem('rol'));
 
@@ -78,11 +110,13 @@ const Productos = () => {
       )}
 
       <div className="container-fluid py-5 mt-5">
-        <form className="search-bar d-flex flex-wrap w-100 justify-content-center" role="search">
+        <form className="search-bar d-flex flex-wrap w-100 justify-content-center" role="search" onSubmit={handleSearch}>
           <input
             type="text"
             className="form-control me-2 mb-2 mb-md-0"
             placeholder="Buscar producto..."
+            value={busqueda}
+            onChange={e => setBusqueda(e.target.value)}
           />
           <button className="search-btn" type="submit">
             <i className="bi bi-search" />
@@ -90,19 +124,29 @@ const Productos = () => {
         </form>
 
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 justify-content-center">
-          <div className="col-sm-6 col-md-4">
-            <div className="card h-100 shadow-sm">
-              <img src="" className="card-img-top img-fluid" alt="Producto 1" />
-              <div className="card-body text-center">
-                <h5 className="card-title">Nombre del Producto 1</h5>
-                <p className="card-text"><strong>Precio:</strong> ₡12,000</p>
-                <Link to="/productou">
-                  <button className="show-btn btn-primary">Ver más</button>
-                </Link>
+          {productos.length > 0 ? (
+            productos.map(producto => (
+              <div className="col-sm-6 col-md-4" key={producto.sku || producto.item_id}>
+                <div className="card h-100 shadow-sm">
+                  {producto.image_url ? (
+                    <img src={producto.image_url} className="card-img-top img-fluid" alt={producto.name} style={{objectFit:'contain',height:'180px',background:'#f8f9fa'}} />
+                  ) : (
+                    <div className="card-img-top text-center py-4" style={{height:'180px',background:'#f8f9fa',color:'#bbb',display:'flex',alignItems:'center',justifyContent:'center'}}>Sin imagen</div>
+                  )}
+                  <div className="card-body text-center">
+                    <h5 className="card-title">{producto.name}</h5>
+                    <p className="card-text"><strong>Precio:</strong> ₡{producto.rate}</p>
+                    <p className="card-text"><strong>Stock:</strong> {producto.stock_on_hand ?? '-'}</p>
+                    <Link to="/productou">
+                      <button className="show-btn btn-primary">Ver más</button>
+                    </Link>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          {/* Más productos aquí */}
+            ))
+          ) : (
+            <div className="text-center">No hay productos para mostrar.</div>
+          )}
         </div>
       </div>
 
