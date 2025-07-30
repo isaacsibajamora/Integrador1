@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [usuario, setUsuario] = useState('');
+  const [rol, setRol] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [mensaje, setMensaje] = useState('');
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ usuario, contraseña }),
+        body: JSON.stringify({ usuario, contraseña, rol }),
       });
 
       const data = await respuesta.json();
@@ -26,6 +27,9 @@ const Login = () => {
         setMensaje(`✅ Bienvenido. Rol: ${data.rol}`);
         // Aquí puedes agregar redirección o guardado en localStorage si quieres
         navigate('/Productos')
+        const rol = data.rol;
+        localStorage.setItem('rol', rol);
+
 
       } else {
         setMensaje(`❌ ${data.mensaje}`);
@@ -75,7 +79,8 @@ const Login = () => {
               <label>Usuario</label>
               <i className="bi bi-person-fill"></i>
             </div>
-            <div className="input-box animation" style={{ '--i': 2, '--j': 23 }}>
+            
+            <div className="input-box animation" style={{ '--i': 2, '--j': 24 }}>
               <input
                 type="password"
                 required

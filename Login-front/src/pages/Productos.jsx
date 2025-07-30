@@ -13,6 +13,10 @@ const Productos = () => {
   const [isClosing, setIsClosing] = useState(false);
   const [showClass, setShowClass] = useState(false);
 
+  const rol = parseInt(localStorage.getItem('rol'));
+
+
+
   const abrirModal = () => {
     setIsClosing(false);
     setModalVisible(true);
@@ -44,13 +48,16 @@ const Productos = () => {
         <div className="nav-container d-flex justify-content-between align-items-center w-100 px-3">
           <img src={logo} alt="Injacom Logo" className="nav-logo img-fluid" />
           <div className="d-flex align-items-center gap-3">
-            <button
-              className="btn btn-outline-success d-flex align-items-center gap-2"
-              onClick={abrirModal}
-              title="Registrar Usuario"
-            >
-              <i className="bi bi-person-plus-fill"></i> Registrar Usuario
-            </button>
+          {rol === 1 && (
+                <button
+                  className="btn btn-outline-success d-flex align-items-center gap-2"
+                  onClick={abrirModal}
+                  title="Registrar Usuario"
+                >
+                  <i className="bi bi-person-plus-fill"></i> Registrar Usuario
+                </button>
+              )}
+
           </div>
         </div>
       </nav>
@@ -58,7 +65,10 @@ const Productos = () => {
       <Menu />
 
       {/* Modal que usa el componente Registrar */}
-      {modalVisible && (
+      
+      
+      {modalVisible &&(
+        
         <div
           className={`modal ${showClass ? 'show' : ''}`}
           onClick={manejarClickFuera}
