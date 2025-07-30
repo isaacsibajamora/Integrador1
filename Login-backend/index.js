@@ -21,7 +21,7 @@ const dbConfig = {
 
 // Ruta login
 app.post('/login', async (req, res) => {
-  const { usuario, contraseña } = req.body;
+  const { usuario, contraseña, rol } = req.body;
 
   try {
     const pool = await sql.connect(dbConfig);
@@ -30,6 +30,7 @@ app.post('/login', async (req, res) => {
       .request()
       .input('usuario', sql.VarChar, usuario)
       .input('contrasena', sql.VarChar, contraseña)
+      //.input('rol', sql.VarChar, rol)
       .query('SELECT * FROM usuarios WHERE users = @usuario AND password = @contrasena');
 
     if (result.recordset.length > 0) {
@@ -46,7 +47,7 @@ app.post('/login', async (req, res) => {
 
 // Ruta registrar
 app.post('/registrar', async (req, res) => {
-  const { usuario, contraseña } = req.body;
+  const { usuario, contraseña, rol } = req.body;
 
   try {
     const pool = await sql.connect(dbConfig);
@@ -66,7 +67,8 @@ app.post('/registrar', async (req, res) => {
       .request()
       .input('usuario', sql.VarChar, usuario)
       .input('contrasena', sql.VarChar, contraseña)
-      .query("INSERT INTO usuarios (users, password) VALUES (@usuario, @contrasena)");
+      .input('rol', sql.VarChar, rol)
+      .query("INSERT INTO usuarios (users, password, rol) VALUES (@usuario, @contrasena, @rol)");
 
     res.status(201).json({ success: true, mensaje: 'Usuario registrado con éxito' });
   } catch (error) {

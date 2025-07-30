@@ -4,6 +4,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const Registrar = ({ cerrarModal }) => {
   const [usuario, setUsuario] = useState('');
+  const [rol, setRol] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [mensaje, setMensaje] = useState('');
 
@@ -14,7 +15,7 @@ const Registrar = ({ cerrarModal }) => {
       const respuesta = await fetch('http://localhost:3001/registrar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ usuario, contraseña }),
+        body: JSON.stringify({ usuario, contraseña, rol }),
       });
 
       const data = await respuesta.json();
@@ -64,6 +65,17 @@ const Registrar = ({ cerrarModal }) => {
                   onChange={(e) => setUsuario(e.target.value)}
                 />
                 <label>Usuario</label>
+                <i className="bi bi-person-fill"></i>
+              </div>
+
+              <div className="inj-input-box inj-animation" style={{ "--i": 18, "--j": 3 }}>
+                <input
+                  type="text"
+                  required
+                  value={rol}
+                  onChange={(e) => setRol(e.target.value)}
+                />
+                <label>Rol</label>
                 <i className="bi bi-person-fill"></i>
               </div>
 
