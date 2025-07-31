@@ -5,6 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../style/producto.css';
 import Menu from "../components/Menu";
 import logo from '../img/injacom-logo-sinfondo.png';
+import Navbar from "../components/NavBar"; // Importamos el nuevo componente Navbar
 import Registrar from './Registrar';
 import { Link } from 'react-router-dom';
 
@@ -122,22 +123,7 @@ const Productos = () => {
 
   return (
     <>
-      <nav className="navbar navbar-fixed" style={{ cursor: "default" }}>
-        <div className="nav-container d-flex justify-content-between align-items-center w-100 px-3">
-          <img src={logo} alt="Injacom Logo" className="nav-logo img-fluid" />
-          <div className="d-flex align-items-center gap-3">
-            {rol === 1 && (
-              <button
-                className="btn btn-outline-success d-flex align-items-center gap-2"
-                onClick={abrirModal}
-                title="Registrar Usuario"
-              >
-                <i className="bi bi-person-plus-fill"></i> Registrar Usuario
-              </button>
-            )}
-          </div>
-        </div>
-      </nav>
+      <Navbar rol={rol} abrirModal={abrirModal} /> {/* Usamos el nuevo componente Navbar */}
 
       <Menu />
 
