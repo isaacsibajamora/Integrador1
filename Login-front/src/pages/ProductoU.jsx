@@ -6,21 +6,16 @@ import '../style/producto.css';
 import logo from '../img/injacom-logo-sinfondo.png';
 import { Link } from 'react-router-dom';
 
-
 const ProductoU = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [showClass, setShowClass] = useState(false);
 
-
   const abrirModal = () => {
     setIsClosing(false);
     setModalVisible(true);
     setShowClass(false);
-
-    setTimeout(() => {
-      setShowClass(true);
-    }, 10);
+    setTimeout(() => setShowClass(true), 10);
   };
 
   const cerrarModal = () => {
@@ -29,7 +24,7 @@ const ProductoU = () => {
     setTimeout(() => {
       setModalVisible(false);
       setIsClosing(false);
-    }, 400); // mismo tiempo que la transición en CSS
+    }, 400);
   };
 
   const manejarClickFuera = (e) => {
@@ -40,12 +35,11 @@ const ProductoU = () => {
 
   return (
     <>
+      {/* Navbar */}
       <nav className="navbar" style={{ cursor: "default" }}>
         <div className="nav-container d-flex justify-content-between align-items-center w-100 px-3">
           <img src={logo} alt="Injacom Logo" className="nav-logo img-fluid" />
-
           <div className="d-flex align-items-center gap-3">
-            {/* Botón Registrar Usuario */}
             <button
               className="btn btn-outline-success d-flex align-items-center gap-2"
               onClick={abrirModal}
@@ -57,19 +51,14 @@ const ProductoU = () => {
         </div>
       </nav>
 
-
       {/* Modal */}
       {modalVisible && (
         <div className={`modal ${showClass ? "show" : ""}`} onClick={manejarClickFuera}>
           <div className="modal-content">
-            <span className="close" onClick={cerrarModal}>
-              &times;
-            </span>
-
+            <span className="close" onClick={cerrarModal}>&times;</span>
             <div className="inj-wrapper">
               <span className="inj-bg-animate"></span>
               <span className="inj-bg-animate2"></span>
-
               <div className="inj-form-box inj-register">
                 <img
                   src={logo}
@@ -82,7 +71,6 @@ const ProductoU = () => {
                     marginRight: "45px",
                   }}
                 />
-
                 <h2 className="inj-animation" style={{ "--i": 17, "--j": 1 }}>
                   Registrar Usuario
                 </h2>
@@ -111,7 +99,6 @@ const ProductoU = () => {
                   </button>
                 </form>
               </div>
-
               <div className="inj-info-text inj-register">
                 <h2 className="inj-animation" style={{ "--i": 17, "--j": 0 }}>
                   Bienvenido a Injacom
@@ -125,6 +112,7 @@ const ProductoU = () => {
         </div>
       )}
 
+      {/* Buscador */}
       <div className="container-fluid py-5 mt-5">
         <form className="search-bar d-flex flex-wrap w-100 justify-content-center" role="search">
           <input
@@ -137,27 +125,36 @@ const ProductoU = () => {
           </button>
         </form>
 
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 justify-content-center">
-          <div className="col-sm-6 col-md-4">
-            <div className="card h-100 shadow-sm">
-              <img src="" className="card-img-top img-fluid" alt="Producto 1" />
+        {/* Cards compactas */}
+        <div className="productos-grid mt-5 d-flex flex-wrap justify-content-center">
+          <div className="producto-card productoU-card">
+            <div className="card h-100">
+              <div className="card-img-container">
+                {/* Imagen del producto */}
+                <img src="" alt="Producto 1" className="card-img-top" />
+              </div>
               <div className="card-body">
                 <h5 className="card-title">Nombre del Producto 1</h5>
-                <p className="card-text"><strong>SKU:</strong> 12345</p>
-                <p className="card-text"><strong>Precio:</strong> ₡12,000</p>
-                <p className="card-text"><strong>Cantidad disponible:</strong> 25</p>
-                <p className="card-text"><strong>Modelo:</strong> A1</p>
+                <div className="card-details">
+                  <p><strong>SKU:</strong> 12345</p>
+                  <p className="price"><strong>Precio:</strong> ₡12,000</p>
+                  <p className="stock"><strong>Cantidad disponible:</strong> 25</p>
+                  <p><strong>Modelo:</strong> A1</p>
+                </div>
+                <Link to="#" className="btn-link">
+                </Link>
               </div>
             </div>
           </div>
-          {/* Agrega más productos aquí */}
+
+          {/* Más productos aquí */}
         </div>
       </div>
 
-      <footer className="footer-custom text-center mt-5">
+      {/* Footer */}
+      <footer className="footer-custom1 text-center mt-5">
         <div className="container py-3">
           <p><strong>IJC Solutions Filter</strong></p>
-          <p>Desarrollado por estudiantes de Ingeniería en Tecnologías de la Información, Universidad Técnica Nacional.</p>
           <p>© 2025</p>
         </div>
       </footer>
