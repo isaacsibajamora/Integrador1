@@ -5,7 +5,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../style/producto.css';
 import Menu from "../components/Menu";
 import logo from '../img/injacom-logo-sinfondo.png';
-import Navbar from "../components/NavBar"; // Importamos el nuevo componente Navbar
+import Navbar from "../components/NavBar"; // componentes
+import Footer from '../components/Footer'; 
 import Registrar from './Registrar';
 import { Link } from 'react-router-dom';
 
@@ -213,13 +214,7 @@ const Productos = () => {
             </div>
           )}
         </div>
-
-        <footer className="footer-custom text-center mt-5">
-          <div className="container py-3">
-            <p><strong>IJC Solutions Filter</strong></p>
-            <p>© 2025</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );

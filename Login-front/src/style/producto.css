@@ -223,7 +223,7 @@ body {
 }
 
 .btn-ver-mas {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--verde-principal);
   border: none;
   border-radius: 8px;
   color: white;
@@ -240,7 +240,7 @@ body {
 .btn-ver-mas:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  background: #9daf25;
 }
 
 /* Estado sin productos */
