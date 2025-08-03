@@ -161,7 +161,11 @@ const Productos = () => {
                   <div className="card h-100">
                     <div className="card-img-container">
                       {producto.image_url ? (
-                        <img src={producto.image_url} className="card-img-top" alt={producto.name} />
+                        <img
+                          src={producto.image_url}
+                            alt={producto.name}
+                          className="card-img-container"
+                        />
                       ) : (
                         <div className="card-img-placeholder">
                           <i className="bi bi-image"></i>
