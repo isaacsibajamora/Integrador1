@@ -135,6 +135,24 @@ app.get('/api/items', async (req, res) => {
   }
 });
 
+// ✅ NUEVA RUTA PARA SERVIR LA IMAGEN DE UN ITEM
+app.get('/api/items/:itemId/image', async (req, res) => {
+  const { itemId } = req.params;
+
+  try {
+    const item = await zohoInventory.getItemById(itemId);
+
+    if (item.image_download_url) {
+      return res.redirect(item.image_download_url); // Redirige a la imagen real de Zoho
+    }
+
+    res.status(404).json({ error: 'El ítem no tiene imagen disponible' });
+  } catch (error) {
+    console.error('❌ Error al obtener imagen del ítem:', error.message || error);
+    res.status(500).json({ error: 'No se pudo obtener la imagen del ítem' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`✅ Servidor backend corriendo en http://localhost:${port}`);
 });
