@@ -162,8 +162,8 @@ const Productos = () => {
                     <div className="card-img-container">
                       {producto.image_url ? (
                         <img
-                          src={producto.image_url}
-                            alt={producto.name}
+                          src={`http://localhost:3001/api/items/${producto.item_id}/image`}
+                          alt={producto.name}
                           className="card-img-container"
                         />
                       ) : (
