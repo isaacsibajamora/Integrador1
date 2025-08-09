@@ -99,7 +99,7 @@ body {
 
 /* Layout principal */
 .main-content {
-  margin-left: 250px; /* Espacio para el menú lateral fijo */
+  margin-left: 100px; /* Espacio para el menú lateral fijo */
   padding-top: 80px; /* Espacio para el navbar fijo */
   min-height: 100vh;
   padding-bottom: 100px;
@@ -244,6 +244,25 @@ body {
   background: #9daf25;
 }
 
+.btn-volver{
+  background: var(--verde-principal);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.btn-volver:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  background: #9daf25;
+}
 /* Estado sin productos */
 .no-products {
   grid-column: 1 / -1;
