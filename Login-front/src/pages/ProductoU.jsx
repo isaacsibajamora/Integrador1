@@ -62,18 +62,7 @@ const ProductoU = () => {
     );
   }
 
-  const {
-    item_id,
-    name,
-    sku,
-    rate,
-    stock_on_hand,
-    model,
-    description,
-    brand,
-    manufacturer,
-    attributes,
-  } = producto;
+  const { item_id, name, sku, rate, stock_on_hand } = producto;
   //siempre debe ir despues de declarar variable
   const priceWithVAT = rate != null ? Number(rate) * 1.13 : null;
 
@@ -96,9 +85,13 @@ const ProductoU = () => {
           <div className="producto-card">
             <div className="card h-100 p-3">
               <div className="card-img-container">
-                {producto.image_url ? (
+                {producto.image_url || item_id ? (
                   <img
-                    src={`${API_BASE}/items/${item_id}/image`}
+                    src={
+                      producto.image_url
+                        ? producto.image_url
+                        : `${API_BASE}/items/${item_id}/image`
+                    }
                     alt={name || "Producto"}
                     className="card-img-top"
                     onError={(e) => {
