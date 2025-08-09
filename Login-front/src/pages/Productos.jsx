@@ -6,7 +6,7 @@ import '../style/producto.css';
 import Menu from "../components/Menu";
 import logo from '../img/injacom-logo-sinfondo.png';
 import Navbar from "../components/NavBar"; // componentes
-import Footer from '../components/Footer'; 
+import Footer from '../components/Footer';
 import Registrar from './Registrar';
 import { Link } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ const Productos = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-  
+
   const PRODUCTS_PER_PAGE = 4;
 
   // Cargar todos los productos al inicio
@@ -39,7 +39,7 @@ const Productos = () => {
         setProductosVisibles([]);
         setHasMore(false);
       }
-      setLoading(false);
+      setLoading(false); F
     })();
   }, []);
 
@@ -68,12 +68,12 @@ const Productos = () => {
   // Cargar más productos
   const loadMoreProducts = useCallback(() => {
     if (loading || !hasMore) return;
-    
+
     const nextPage = currentPage + 1;
     const startIndex = (nextPage - 1) * PRODUCTS_PER_PAGE;
     const endIndex = startIndex + PRODUCTS_PER_PAGE;
     const newProducts = productos.slice(startIndex, endIndex);
-    
+
     if (newProducts.length > 0) {
       setProductosVisibles(prev => [...prev, ...newProducts]);
       setCurrentPage(nextPage);
@@ -86,8 +86,8 @@ const Productos = () => {
   // Detectar scroll para cargar más productos
   useEffect(() => {
     const handleScroll = () => {
-      if (window.innerHeight + document.documentElement.scrollTop >= 
-          document.documentElement.offsetHeight - 1000) {
+      if (window.innerHeight + document.documentElement.scrollTop >=
+        document.documentElement.offsetHeight - 1000) {
         loadMoreProducts();
       }
     };
@@ -140,18 +140,18 @@ const Productos = () => {
       <div className="main-content">
         <div className="container-fluid py-1">
           <form className="search-bar d-flex justify-content-center mb-4" role="search" onSubmit={handleSearch}>
-            
-              <input
-                type="text"
-                className="form-control me-2 mb-2 mb-md-0"
-                placeholder="Buscar producto..."
-                value={busqueda}
-                onChange={e => setBusqueda(e.target.value)}
-              />
-              <button className="search-btn" type="submit">
-                <i className="bi bi-search" />
-              </button>
-            
+
+            <input
+              type="text"
+              className="form-control me-2 mb-2 mb-md-0"
+              placeholder="Buscar producto..."
+              value={busqueda}
+              onChange={e => setBusqueda(e.target.value)}
+            />
+            <button className="search-btn" type="submit">
+              <i className="bi bi-search" />
+            </button>
+
           </form>
 
           <div className="productos-grid">
@@ -179,14 +179,14 @@ const Productos = () => {
                         <p className="price">Precio: ₡{producto.rate}</p>
                         <p className="stock">Stock: {producto.stock_on_hand ?? '-'}</p>
                       </div>
-                     
-<Link
-  to="/productou"
-  state={{ producto }}           // ← agrega esto
-  className="btn-link"
->
-  <button className="btn-ver-mas">Ver más</button>
-</Link>
+
+                      <Link
+                        to="/productou"
+                        state={{ producto }}           // ← agrega esto
+                        className="btn-link"
+                      >
+                        <button className="btn-ver-mas">Ver más</button>
+                      </Link>
 
                     </div>
                   </div>
