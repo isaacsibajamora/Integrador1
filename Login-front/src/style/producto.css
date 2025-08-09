@@ -102,6 +102,7 @@ body {
   margin-left: 250px; /* Espacio para el menú lateral fijo */
   padding-top: 80px; /* Espacio para el navbar fijo */
   min-height: 100vh;
+  padding-bottom: 100px;
   transition: margin-left 0.3s ease;
 }
 
@@ -379,7 +380,7 @@ body {
 /*----- FOOTER -----*/
 .footer-custom {
   position: fixed;
-  top: 80%;
+  top: 81.5%;
   bottom: 0;
   left: 0;
   right: 0;
@@ -397,7 +398,7 @@ body {
 }
 
 .footer-custom strong {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--blanco);
 }
 
@@ -485,6 +486,7 @@ body {
 
 .inj-form-box .inj-input-box {
   position: relative;
+  bottom: 20px;
   width: 100%;
   height: 50px;
   margin: 25px 0;
@@ -542,6 +544,7 @@ body {
 }
 
 .inj-btn {
+  bottom: 15px;
   position: relative;
   width: 100%;
   height: 45px;
