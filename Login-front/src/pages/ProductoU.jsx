@@ -149,9 +149,6 @@ const ProductoU = () => {
                 <button className="btn btn-secondary" onClick={() => navigate(-1)}>
                   <i className="bi bi-arrow-left"></i> Volver
                 </button>
-                <Link to="/productos" className="btn btn-outline-primary">
-                  Ver todos
-                </Link>
               </div>
             </div>
           </div>

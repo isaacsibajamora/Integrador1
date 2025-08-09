@@ -179,7 +179,7 @@ const Productos = () => {
                         <p className="price">Precio: ₡{producto.rate}</p>
                         <p className="stock">Stock: {producto.stock_on_hand ?? '-'}</p>
                       </div>
-                      // En Productos.jsx, dentro de la tarjeta:
+                     
 <Link
   to="/productou"
   state={{ producto }}           // ← agrega esto
