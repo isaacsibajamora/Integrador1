@@ -49,65 +49,61 @@ const ProductoU = () => {
   const priceWithVAT = rate != null ? (Number(rate) * 1.13) : null;
 
   return (
-    <>
-      <Navbar rol={rol} abrirModal={abrirModal} />
+  <>
+    <Navbar rol={rol} abrirModal={abrirModal} />
+    <Menu />
 
+    {modalVisible && (
+      <div
+        className={`modal ${showClass ? 'show' : ''}`}
+        onClick={manejarClickFuera}
+      >
+        <Registrar cerrarModal={cerrarModal} />
+      </div>
+    )}
 
-      <Menu />
-
-      {modalVisible && (
-        <div
-          className={`modal ${showClass ? 'show' : ''}`}
-          onClick={manejarClickFuera}
-        >
-          <Registrar cerrarModal={cerrarModal} />
-        </div>
-      )}
-
-      {/* Detalle unitario */}
-          <div className="col-12 col-md-7">
-            <div className="card h-100 p-3">
-              <div className="card-img-container">
+    <div className="main-content">
+      <div className="container-fluid py-3">
+        <div className="producto-card">
+          <div className="card h-100 p-3">
+            <div className="card-img-container">
+              {producto.image_url ? (
                 <img
-                  src={producto.image_url
-                    ? producto.image_url
-                    : `${API_BASE}/items/${item_id}/image`}
+                  src={`${API_BASE}/items/${item_id}/image`}
                   alt={name || 'Producto'}
                   className="card-img-top"
                   onError={(e) => { e.currentTarget.src = '/img/no-image.png'; }}
                 />
-              </div>
-              <h3 className="mb-2">{name || 'Producto'}</h3>
+              ) : (
+                <div className="card-img-placeholder">
+                  <i className="bi bi-image"></i>
+                  <span>Sin imagen</span>
+                </div>
+              )}
+            </div>
+
+            <div className="card-body">
+              <h3 className="card-title">{name || 'Producto'}</h3>
               <div className="text-muted mb-3">
                 {sku ? <>SKU: <code>{sku}</code></> : 'SKU no disponible'}
               </div>
 
-              <div className="row mb-3">
-                <div className="col-6">
-                  <p className="mb-1"><strong>Precio (con 13%):</strong></p>
-                    <p className="price fs-5">₡{priceWithVAT != null ? priceWithVAT.toFixed(2) : '-'}</p>
-                    {rate != null && (
-                      <small className="text-muted">Precio base: ₡{Number(rate).toFixed(2)}</small>
-                    )}
-                </div>
-
-                <div className="col-6">
-                  <p className="mb-1"><strong>Stock:</strong></p>
-                  <p className="stock fs-5">{stock_on_hand ?? '-'}</p>
-                </div>
+              <div className="card-details">
+                <p className="price">Precio (con 13%): ₡{priceWithVAT != null ? priceWithVAT.toFixed(2) : '-'}</p>
+                {rate != null && (
+                  <small className="text-muted">Precio base: ₡{Number(rate).toFixed(2)}</small>
+                )}
+                <p className="stock">Stock: {stock_on_hand ?? '-'}</p>
               </div>
 
-              <div className="mb-3">
-                <p className="mb-1"><strong>Modelo:</strong></p>
-                <p>{model ?? '-'}</p>
-              </div>
-
-              {attributes && Array.isArray(attributes) && attributes.length > 0 && (
+              {attributes?.length > 0 && (
                 <div className="mb-3">
                   <p className="mb-2"><strong>Características:</strong></p>
                   <ul className="mb-0">
                     {attributes.map((a, idx) => (
-                      <li key={idx}>{(a.label || a.name) ?? 'Atributo'}: {a.value ?? '-'}</li>
+                      <li key={idx}>
+                        {(a.label || a.name) ?? 'Atributo'}: {a.value ?? '-'}
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -120,10 +116,13 @@ const ProductoU = () => {
               </div>
             </div>
           </div>
-
+        </div>
+      </div>
       <Footer />
-    </>
-  );
+    </div>
+  </>
+);
+
 };
 
 export default ProductoU;
