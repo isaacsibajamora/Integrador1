@@ -171,6 +171,16 @@ const Productos = () => {
                           alt={producto.name}
                           className="card-img"
                           loading="lazy"
+                          onError={(e) => {
+                            // Si la imagen no carga, mostramos el placeholder
+                            e.target.onerror = null;
+                            e.target.replaceWith(
+                              Object.assign(document.createElement("div"), {
+                                className: "card-img-placeholder",
+                                innerHTML: `<i class="bi bi-image"></i><span>Sin imagen</span>`,
+                              })
+                            );
+                          }}
                         />
                       ) : (
                         <div className="card-img-placeholder">
