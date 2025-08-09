@@ -183,7 +183,7 @@ body {
 }
 
 .card-title {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 600;
   margin-bottom: 10px;
   color: #2c3e50;
@@ -211,10 +211,21 @@ body {
   text-align: center;
 }
 
+code{
+  color: black;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+.text-muted{
+  color: black !important;
+  font-size: 16px;
+}
 .stock {
-  color: #7f8c8d;
+  color: #000000;
   font-weight: 500;
   text-align: center;
+  font-size: 16px !important;
+  margin-top: 10px;
 }
 
 /* Botón mejorado */
