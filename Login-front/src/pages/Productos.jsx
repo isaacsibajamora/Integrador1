@@ -39,7 +39,8 @@ const Productos = () => {
         setProductosVisibles([]);
         setHasMore(false);
       }
-      setLoading(false); F
+      setLoading(false);
+
     })();
   }, []);
 
@@ -160,11 +161,16 @@ const Productos = () => {
                 <div className="producto-card" key={producto.sku || producto.item_id}>
                   <div className="card h-100">
                     <div className="card-img-container">
-                      {producto.image_url ? (
+                      {(producto.image_url || producto.item_id) ? (
                         <img
-                          src={`http://localhost:3001/api/items/${producto.item_id}/image`}
+                          src={
+                            producto.image_url
+                              ? producto.image_url
+                              : `http://localhost:3001/api/items/${producto.item_id}/image`
+                          }
                           alt={producto.name}
-                          className="card-img-container"
+                          className="card-img"
+                          loading="lazy"
                         />
                       ) : (
                         <div className="card-img-placeholder">
