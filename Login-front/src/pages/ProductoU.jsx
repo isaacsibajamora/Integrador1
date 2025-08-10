@@ -95,7 +95,12 @@ const ProductoU = () => {
                     alt={name || "Producto"}
                     className="card-img-top"
                     onError={(e) => {
-                      e.currentTarget.src = "/img/no-image.png";
+                      e.target.replaceWith(
+                        Object.assign(document.createElement("div"), {
+                          className: "card-img-placeholder",
+                          innerHTML: `<i class="bi bi-image"></i><span>Sin imagen</span>`,
+                        })
+                      );
                     }}
                   />
                 ) : (
