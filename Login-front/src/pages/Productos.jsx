@@ -125,7 +125,11 @@ const Productos = () => {
 
   return (
     <>
-      <Navbar rol={rol} abrirModal={abrirModal} /> {/* Usamos el nuevo componente Navbar */}
+      <Navbar rol={rol} abrirModal={abrirModal} /> {/* Usamos el nuevo componente Navbar */
+      
+
+
+      }
 
       <Menu />
 

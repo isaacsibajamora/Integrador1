@@ -87,6 +87,92 @@ app.post('/registrar', async (req, res) => {
     res.status(500).json({ success: false, mensaje: 'Error en el servidor' });
   }
 });
+  // ----------------aqui empieza lo de usuarios----------------
+
+// Obtener todos los usuarios
+app.get('/api/usuarios', async (req, res) => {
+  try {
+    const pool = await sql.connect(dbConfig);
+    const result = await pool.request().query('SELECT users, rol FROM usuarios');
+    res.json(result.recordset);
+  } catch (error) {
+    console.error('❌ Error al obtener usuarios:', error);
+    res.status(500).json({ error: 'Error al obtener usuarios' });
+  }
+});
+
+// Crear nuevo usuario
+app.post('/api/usuarios', async (req, res) => {
+  const { usuario, contraseña, rol } = req.body;
+  try {
+    const pool = await sql.connect(dbConfig);
+
+    await pool
+      .request()
+      .input('usuario', sql.VarChar, usuario)
+      .input('contrasena', sql.VarChar, contraseña)
+      .input('rol', sql.VarChar, rol)
+      .query('INSERT INTO usuarios (users, password, rol) VALUES (@usuario, @contrasena, @rol)');
+
+    res.status(201).json({ success: true, mensaje: 'Usuario creado con éxito' });
+  } catch (error) {
+    console.error('❌ Error al crear usuario:', error);
+    res.status(500).json({ error: 'Error al crear usuario' });
+  }
+});
+
+// Editar usuario
+app.put('/api/usuarios/:users', async (req, res) => {
+  const { users: usuarioViejo } = req.params; // usuario original
+  const { usuario: usuarioNuevo, contraseña, rol } = req.body; // nuevos valores
+
+  try {
+    const pool = await sql.connect(dbConfig);
+
+    // Construimos la query dinámicamente según si hay nueva contraseña
+    let query = 'UPDATE usuarios SET users=@usuarioNuevo, rol=@rol';
+    if (contraseña && contraseña.trim() !== '') {
+      query += ', password=@contrasena';
+    }
+    query += ' WHERE users=@usuarioViejo';
+
+    const request = pool.request()
+      .input('usuarioNuevo', sql.VarChar, usuarioNuevo)
+      .input('rol', sql.VarChar, rol)
+      .input('usuarioViejo', sql.VarChar, usuarioViejo);
+
+    if (contraseña && contraseña.trim() !== '') {
+      request.input('contrasena', sql.VarChar, contraseña);
+    }
+
+    await request.query(query);
+
+    res.json({ success: true, mensaje: 'Usuario actualizado con éxito' });
+  } catch (error) {
+    console.error('❌ Error al actualizar usuario:', error);
+    res.status(500).json({ success: false, mensaje: 'Error al actualizar usuario' });
+  }
+});
+
+// Eliminar usuario
+app.delete('/api/usuarios/:users', async (req, res) => {
+  const { users } = req.params;
+  try {
+    const pool = await sql.connect(dbConfig);
+    await pool.request().input('users', sql.VarChar, users).query('DELETE FROM usuarios WHERE users=@users');
+
+    res.json({ success: true, mensaje: 'Usuario eliminado con éxito' });
+  } catch (error) {
+    console.error('❌ Error al eliminar usuario:', error);
+    res.status(500).json({ error: 'Error al eliminar usuario' });
+  }
+});
+
+// -----------------Aqui termina----------------
+
+
+
+
 
 
 // Endpoint para obtener productos desde Zoho
