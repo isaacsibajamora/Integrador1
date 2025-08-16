@@ -4,36 +4,38 @@
 }
 
 .inj-sidebar {
-    position: absolute;
+    position: fixed;
     top: 65px;
     bottom: 0;
-    height: 87.2%;
+    height: 79%;
     left: 0;
     background: #fff;
-    width: 90px;
+    width: 95px;
     overflow: hidden;
     transition: width 0.2s linear;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    z-index: 998;
 }
+
 @media (max-width: 1921px) {
     .inj-sidebar {
-        height: 100.6% !important;
+    height: 79% !important;
     }
 }
 
 /* Laptop grande: 1366px a 1920px */
 @media (min-width: 1366px) and (max-width: 1920px) {
   .inj-sidebar {
-    height: 87.2% !important;
+    height: 79% !important;
   }
 }
 /* Laptop mediana: 1024px a 1365px */
 @media (min-width: 1024px) and (max-width: 1365px) {
   .inj-sidebar {
     height: 87.2% !important;
+    height: 78% !important;
   }
 }
-
 
 .inj-sidebar:hover {
   width: 280px;
@@ -45,6 +47,11 @@
     outline: none;
     border: none;
     text-decoration: none;
+}
+
+.inj-sidebar .logout {
+    position: absolute;
+    bottom: 0;
 }
 
 .inj-sidebar .nav-item{
@@ -80,7 +87,7 @@
     font-size: 14px;
     display: table;
     width: 300px;
-    padding: 10px;
+    padding: 15px;
     text-decoration: none;
 }
 
@@ -95,9 +102,4 @@
     top: 14px;
     font-size: 20px;
     text-align: center;
-}
-
-.inj-sidebar .logout {
-    position: absolute;
-    bottom: 0;
 }

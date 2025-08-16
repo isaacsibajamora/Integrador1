@@ -8,12 +8,6 @@ const Menu = () => {
     <nav className="inj-sidebar">
       <ul>
         <li>
-          <a href="#" className="inj-logo">
-            <img src={menuLogo} alt="Logo" />
-            <span className="nav-item">Info</span>
-          </a>
-        </li>
-        <li>
           <a href="#">
             <i className="fas fa-home"></i>
             <span className="nav-item">Inicio</span>
@@ -27,34 +21,11 @@ const Menu = () => {
         </li>
         <li>
           <a href="#">
-            <i className="fas fa-wallet"></i>
-            <span className="nav-item">Impresora</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i className="fas fa-chart-bar"></i>
-            <span className="nav-item">Impresora</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i className="fas fa-tasks"></i>
-            <span className="nav-item">Tintas</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
             <i className="fas fa-cog"></i>
             <span className="nav-item">Configuración</span>
           </a>
         </li>
-        <li>
-          <a href="#">
-            <i className="fas fa-question-circle"></i>
-            <span className="nav-item">Ayuda</span>
-          </a>
-        </li>
+
         <li>
           <a href="#" className="logout">
             <i className="fas fa-sign-out-alt"></i>

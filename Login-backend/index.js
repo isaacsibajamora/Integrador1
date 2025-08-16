@@ -135,6 +135,50 @@ app.get('/api/items', async (req, res) => {
   }
 });
 
+// ✅ NUEVA RUTA PARA SERVIR LA IMAGEN DE UN ITEM
+// Esta ruta obtiene la imagen de un item por su ID
+// y la devuelve como un stream, con manejo de errores y caché.
+app.get('/api/items/:itemId/image', async (req, res) => {
+  const { itemId } = req.params;
+  try {
+    const item = await zohoInventory.getItemById(itemId);
+    if (!item) return res.status(404).json({ error: 'Item no encontrado' });
+
+    const { resp, used } = await zohoInventory.getItemImageStream({
+      itemId,
+      imageDocumentId: item.image_document_id,
+    });
+
+    // LOG de diagnóstico
+    console.log(`[IMG] itemId=${itemId} via=${used} status=${resp.status}`);
+
+    // Tipo de contenido (admite jpg/jpeg/png)
+    const contentType =
+      resp.headers['content-type'] ||
+      (item.image_type ? `image/${String(item.image_type).toLowerCase()}` : 'image/jpeg');
+
+    res.setHeader('Content-Type', contentType);
+    res.setHeader('Cache-Control', 'public, max-age=3600');
+
+    resp.data.pipe(res);
+  } catch (error) {
+    const status = error?.response?.status;
+    const data = error?.response?.data;
+    console.error('❌ IMG error:', status || '', data || error?.message || error);
+
+    // Si es 401/403 probablemente token expirado
+    if (status === 401 || status === 403) {
+      return res.status(502).json({ error: 'No autorizado al descargar la imagen de Zoho' });
+    }
+
+    if (status === 404) {
+      return res.status(404).json({ error: 'Imagen no encontrada en Zoho' });
+    }
+
+    res.status(500).json({ error: 'No se pudo obtener la imagen del ítem' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`✅ Servidor backend corriendo en http://localhost:${port}`);
 });
