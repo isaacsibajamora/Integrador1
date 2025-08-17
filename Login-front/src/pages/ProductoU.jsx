@@ -80,9 +80,9 @@ const ProductoU = () => {
         </div>
       )}
 
-      <div className="main-content">
+            <div className="main-content">
         <div className="container-fluid py-3">
-          <div className="producto-card">
+          <div className="productoU-card">
             <div className="card h-100 p-3">
               <div className="card-img-container">
                 {producto.image_url || item_id ? (
