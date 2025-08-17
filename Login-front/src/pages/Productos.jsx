@@ -196,7 +196,10 @@ const Productos = () => {
                     <div className="card-body">
                       <h6 className="card-title">{producto.name}</h6>
                       <div className="card-details">
-                        <p className="price">Precio: ₡{producto.rate}</p>
+                        <p className="price">
+                          Precio: ₡
+                          {producto.rate != null ? (Number(producto.rate) * 1.13).toFixed(2) : "-"}
+                        </p>
                         <p className="stock">Stock: {producto.stock_on_hand ?? '-'}</p>
                       </div>
 
