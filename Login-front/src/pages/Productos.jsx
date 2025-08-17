@@ -125,22 +125,10 @@ const Productos = () => {
 
   return (
     <>
-      <Navbar rol={rol} abrirModal={abrirModal} /> {/* Usamos el nuevo componente Navbar */
-      
-
-
+      <Navbar/> {
       }
 
       <Menu />
-
-      {modalVisible && (
-        <div
-          className={`modal ${showClass ? 'show' : ''}`}
-          onClick={manejarClickFuera}
-        >
-          <Registrar cerrarModal={cerrarModal} />
-        </div>
-      )}
 
       <div className="main-content">
         <div className="container-fluid py-1">
