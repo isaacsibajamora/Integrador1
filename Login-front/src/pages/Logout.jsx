@@ -33,31 +33,38 @@ const Logout = () => {
         transition: "opacity 0.4s ease",
       }}
     >
-    <div
-  className="modal-content"
-  style={{
-    background: "#fff",
-    borderRadius: "10px",
-    padding: "50px",
-    textAlign: "center",
-    minWidth: "200px",
-    maxWidth: "500px",
-    boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center"
-  }}
->
-  <h2 style={{ color: "#0d6efd", marginBottom: "20px" }}>Cerrando sesión...</h2>
-  <div
-    className="spinner-border text-primary"
-    role="status"
-    style={{ width: "3rem", height: "3rem" }}
-  >
-    <span className="visually-hidden">Cargando...</span>
-  </div>
-</div>
+      <div
+        className="modal-content"
+        style={{
+          background: "#fff",
+          borderRadius: "10px",
+          padding: "50px",
+          textAlign: "center",
+          minWidth: "200px",
+          maxWidth: "500px",
+          boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <h2 style={{
+          color: "#00699e",
+          marginBottom: "20px",
+          fontFamily: "Poppins, sans-serif"
+        }}>
+          Cerrando sesión...
+        </h2>
+
+        <div
+          className="spinner-border"
+          role="status"
+          style={{ width: "3rem", height: "3rem", color: "#c1d72e"}}
+        >
+          <span className="visually-hidden">Cargando...</span>
+        </div>
+      </div>
     </div>
   );
 };
