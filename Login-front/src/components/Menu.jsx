@@ -31,18 +31,6 @@ const Menu = () => {
               <span className="nav-item">Inicio</span>
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i className="fas fa-user"></i>
-              <span className="nav-item">Perfil</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fas fa-cog"></i>
-              <span className="nav-item">Configuración</span>
-            </a>
-          </li>
 
           <li>
             <a href="/usuarios" className="usuarios" onClick={manejarUsuariosClick}>
