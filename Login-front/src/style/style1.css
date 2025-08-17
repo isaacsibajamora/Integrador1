@@ -1,15 +1,13 @@
 @import url('https;//font.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap'); 
 
 :root {
-    --azul-oscuro: #091337;
-    --azul-principal: #00699e;
-    --verde-principal: #c1d72e;
-    --verde-oscuro: #47b648;
-    --gris: #939597;
-    --negro: #000000;
-    --blanco: #ffffff;
-   --i: 0;
-   --j: 0;
+  --azul-oscuro: #091337;
+  --azul-principal: #00699e;
+  --verde-principal: #c1d72e;
+  --verde-oscuro: #47b648;
+  --gris: #939597;
+  --negro: #000000;
+  --blanco: #ffffff;
 }
 
 * {
