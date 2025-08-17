@@ -12,7 +12,6 @@ import Menu from './components/Menu';
 
 // Páginas (lazy loading)
 const Login = lazy(() => import('./pages/Login'));
-const Ajustes = lazy(() => import('./pages/Ajustes'));
 const Productos = lazy(() => import('./pages/Productos'));
 const ProductoU = lazy(() => import('./pages/ProductoU'));
 const Usuarios = lazy(() => import('./pages/Usuarios')); // 
@@ -33,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Productos" element={<Productos />} />
-          <Route path="/ajustes" element={<Ajustes />} />
+          <Route path="/" element={<Productos />} />
           <Route path="/productou" element={<ProductoU />} />
           <Route path="/usuarios" element={<Usuarios />} /> 
           <Route path="/logout" element={<Logout />} />
