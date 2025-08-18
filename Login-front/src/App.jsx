@@ -15,7 +15,7 @@ const Login = lazy(() => import('./pages/Login'));
 const Productos = lazy(() => import('./pages/Productos'));
 const ProductoU = lazy(() => import('./pages/ProductoU'));
 const Usuarios = lazy(() => import('./pages/Usuarios')); // 
-const Logout = lazy(() => import('./pages/Logout'));
+const Logout = lazy(() => import('./pages/logout'));
 
 function App() {
   return (
