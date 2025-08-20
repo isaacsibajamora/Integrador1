@@ -99,29 +99,7 @@ const Productos = () => {
 
   const rol = parseInt(localStorage.getItem('rol'));
 
-  const abrirModal = () => {
-    setIsClosing(false);
-    setModalVisible(true);
-    setShowClass(false);
-    setTimeout(() => {
-      setShowClass(true);
-    }, 10);
-  };
-
-  const cerrarModal = () => {
-    setIsClosing(true);
-    setShowClass(false);
-    setTimeout(() => {
-      setModalVisible(false);
-      setIsClosing(false);
-    }, 400);
-  };
-
-  const manejarClickFuera = (e) => {
-    if (e.target.classList.contains("modal")) {
-      cerrarModal();
-    }
-  };
+  
 
   return (
     <>

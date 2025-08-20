@@ -177,6 +177,120 @@ body{
     z-index: 1;
     overflow: hidden;
 }
+/* Botones celeste pequeños */
+.btn-celeste-mini {
+  font-size: 1rem;
+  padding: 8px 8px;
+  background-color: #00699e; /* celeste */
+  border: 1px solid #46b8da;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-celeste-mini:hover {
+  background-color: #c43c37;
+}
+
+.btn-azul-mini {
+  font-size: 1rem;
+  padding: 8px 8px;
+  background-color: #00699e; /* celeste */
+  border: 1px solid #46b8da;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-azul-mini:hover {
+  background-color: #47b648;
+}
+
+.btn-azul {
+  font-size: 1rem;
+  padding: 10px 32px;
+  background-color: #00699e; /* celeste */
+  border: 1px solid #46b8da;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-azul:hover {
+  background-color: #bca9db;
+}
+
+
+/* Tabla más grande */
+.table-hover th,
+.table-hover td {
+  font-size: 1rem;
+  padding: 20px 100px;
+}
+
+/* Tabla que ocupe todo el ancho disponible */
+.table-responsive {
+  max-width: 100%;
+}
+
+.tabla-personalizada td
+ {
+  background-color: #93959741 !important;
+  color: #000000 !important;
+}
+
+
+.tabla-personalizada th {
+  background-color: #00699e !important;
+  color: #ffffff !important;
+}
+
+/* Badge más grande si querés */
+.badge {
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  background-color: #c1d72e;
+}
+
+.table.table-bordered {
+  border-color: #0000005e !important; /* borde exterior */
+}
+
+.table.table-bordered th,
+.table.table-bordered td {
+  border-color: #0000005e !important; /* bordes de las celdas */
+}
+
+/* Estilo para que el select se vea igual que los inputs */
+.inj-select {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #01243a;
+  -webkit-appearance: none; /* Quitar estilo por defecto en Safari/Chrome */
+  -moz-appearance: none; /* Quitar estilo por defecto en Firefox */
+  appearance: none; /* Estilo uniforme */
+  cursor: pointer;
+}
+
+/* Para que el label funcione igual que con los inputs */
+.inj-input-box.inj-animation label {
+  pointer-events: none;
+}
+
+
 
 .btn::before{
     content: '';

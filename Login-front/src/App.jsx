@@ -15,7 +15,7 @@ const Login = lazy(() => import('./pages/Login'));
 const Productos = lazy(() => import('./pages/Productos'));
 const ProductoU = lazy(() => import('./pages/ProductoU'));
 const Usuarios = lazy(() => import('./pages/Usuarios')); // 
-const Logout = lazy(() => import('./pages/Logout'));
+const Logout = lazy(() => import('./pages/logout'));
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
         }
       >
         <Routes>
-          <Route path="/Login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/Productos" element={<Productos />} />
           <Route path="/" element={<Productos />} />
           <Route path="/productou" element={<ProductoU />} />

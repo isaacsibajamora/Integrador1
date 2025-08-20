@@ -7,53 +7,42 @@ import Menu from "../components/Menu";
 import Navbar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Registrar from "./Registrar";
-import EditarUsuario from "./EditarUsuario"; // importamos el componente de edición
+import EditarUsuario from "./EditarUsuario";
 
 const API_BASE = "http://localhost:3001/api";
 
 const Usuarios = () => {
   const rol = parseInt(localStorage.getItem("rol"));
 
-  // Estados principales
   const [usuarios, setUsuarios] = useState([]);
   const [loading, setLoading] = useState(false);
   const [mensaje, setMensaje] = useState("");
-
-  // Modal de registrar / editar
   const [modalVisible, setModalVisible] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
   const [showClass, setShowClass] = useState(false);
-
-  // Estado para edición
   const [usuarioEditando, setUsuarioEditando] = useState(null);
 
   const abrirModal = () => {
-    setUsuarioEditando(null); // nuevo usuario
-    setIsClosing(false);
+    setUsuarioEditando(null);
     setModalVisible(true);
     setShowClass(false);
     setTimeout(() => setShowClass(true), 10);
   };
 
   const abrirModalEditar = (usuario) => {
-    setUsuarioEditando(usuario); // cargamos usuario a editar
-    setIsClosing(false);
+    setUsuarioEditando(usuario);
     setModalVisible(true);
     setShowClass(false);
     setTimeout(() => setShowClass(true), 10);
   };
 
   const cerrarModal = () => {
-    setIsClosing(true);
     setShowClass(false);
     setTimeout(() => {
       setModalVisible(false);
-      setIsClosing(false);
       setUsuarioEditando(null);
     }, 400);
   };
 
-  // Obtener usuarios
   const fetchUsuarios = async () => {
     setLoading(true);
     try {
@@ -61,7 +50,7 @@ const Usuarios = () => {
       const data = await res.json();
       setUsuarios(data);
     } catch (error) {
-      console.error("Error cargando usuarios:", error);
+      console.error(error);
       setMensaje("❌ No se pudieron cargar los usuarios");
     }
     setLoading(false);
@@ -71,10 +60,8 @@ const Usuarios = () => {
     fetchUsuarios();
   }, []);
 
-  // Eliminar usuario
   const eliminarUsuario = async (users) => {
     if (!window.confirm("¿Seguro que deseas eliminar este usuario?")) return;
-
     try {
       const res = await fetch(`${API_BASE}/usuarios/${users}`, { method: "DELETE" });
       const data = await res.json();
@@ -98,11 +85,8 @@ const Usuarios = () => {
       {modalVisible && (
         <div
           className={`modal ${showClass ? "show" : ""}`}
-          onClick={(e) => {
-            if (e.target.classList.contains("modal")) cerrarModal();
-          }}
+          onClick={(e) => e.target.classList.contains("modal") && cerrarModal()}
         >
-          {/* Abrimos Registrar o EditarUsuario según usuarioEditando */}
           {usuarioEditando ? (
             <EditarUsuario
               cerrarModal={cerrarModal}
@@ -110,21 +94,18 @@ const Usuarios = () => {
               recargarUsuarios={fetchUsuarios}
             />
           ) : (
-            <Registrar
-              cerrarModal={cerrarModal}
-              recargarUsuarios={fetchUsuarios}
-            />
+            <Registrar cerrarModal={cerrarModal} recargarUsuarios={fetchUsuarios} />
           )}
         </div>
       )}
 
       <div className="main-content">
-        <div className="container-fluid py-3">
-          <div className="d-flex justify-content-between align-items-center mb-3">
+        <div className="container-fluid py-5">
+          <div className="d-flex justify-content-between align-items-center mb-4">
             <h3 className="fw-bold">
-              <i className="bi bi-people-fill me-2"></i> Gestión de Usuarios
+              <i className="bi bi-people-fill me-1"></i> Gestión de Usuarios
             </h3>
-            <button className="btn btn-primary" onClick={abrirModal}>
+            <button className="btn-azul" onClick={abrirModal}>
               <i className="bi bi-person-plus"></i> Nuevo Usuario
             </button>
           </div>
@@ -139,11 +120,11 @@ const Usuarios = () => {
             </div>
           ) : usuarios.length > 0 ? (
             <div className="table-responsive">
-              <table className="table table-hover align-middle">
+              <table className="table table-hover table-bordered align-middle w-100 tabla-personalizada">
                 <thead className="table-dark">
                   <tr>
-                    <th>Usuario</th>
-                    <th>Rol</th>
+                    <th className="text-center">Usuario</th>
+                    <th className="text-center">Rol</th>
                     <th className="text-center">Acciones</th>
                   </tr>
                 </thead>
@@ -151,22 +132,25 @@ const Usuarios = () => {
                   {usuarios.map((u) => (
                     <tr key={u.users}>
                       <td>{u.users}</td>
-                      <td>
-                        <span className="badge bg-info text-dark">{u.rol}</span>
+                      <td className="text-center">
+                        <span className="badge text-dark">{u.rol}</span>
                       </td>
                       <td className="text-center">
-                        <button
-                          className="btn btn-sm btn-warning me-2"
-                          onClick={() => abrirModalEditar(u)}
-                        >
-                          <i className="bi bi-pencil"></i>
-                        </button>
-                        <button
-                          className="btn btn-sm btn-danger"
-                          onClick={() => eliminarUsuario(u.users)}
-                        >
-                          <i className="bi bi-trash"></i>
-                        </button>
+                        <div className="d-inline-flex gap-1">
+                          <button
+                            className="btn-azul-mini"
+                            onClick={() => abrirModalEditar(u)}
+                          >
+                            <i className="bi bi-pencil"></i> Editar
+                          </button>
+
+                          <button
+                            className="btn-celeste-mini"
+                            onClick={() => eliminarUsuario(u.users)}
+                          >
+                            <i className="bi bi-trash"></i> Borrar
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}
