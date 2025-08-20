@@ -51,6 +51,8 @@ const EditarUsuario = ({ cerrarModal, usuarioData }) => {
   };
 
   return (
+    <>
+    
     <div className="modal show" onClick={(e) => { if (e.target.classList.contains('modal')) cerrarModal(); }}>
       <div className="modal-content">
         <span className="close" onClick={cerrarModal}>&times;</span>
@@ -72,16 +74,63 @@ const EditarUsuario = ({ cerrarModal, usuarioData }) => {
 
             <form onSubmit={manejarSubmit}>
               <div className="inj-input-box inj-animation" style={{ "--i": 18, "--j": 2 }}>
-                <input type="text" required value={usuario} onChange={(e) => setUsuario(e.target.value)} />
+                <input type="text" required value={usuario} onChange={(e) => setUsuario(e.target.value)}   />
                 <label>Usuario</label>
-                <i className="bi bi-person-fill"></i>
+                <i className="bi bi-person-fill" style={{
+                  position: "absolute",
+                  fontSize: "19px",
+                  right: "0px",
+                  top: "50%",
+                  transform: "translateY(-40%)",
+                  color: "#01243a",   // 🔹 aquí lo fuerzas a este color
+                  pointerEvents: "none",
+                }}></i>
               </div>
 
-              <div className="inj-input-box inj-animation" style={{ "--i": 18, "--j": 3 }}>
-                <input type="text" required value={rol} onChange={(e) => setRol(e.target.value)} />
-                <label>Rol</label>
-                <i className="bi bi-person-fill"></i>
+              <div
+                className="inj-input-box inj-animation"
+                style={{ "--i": 18, "--j": 3, position: "relative" }}
+              >
+                <select
+                  required
+                  value={rol}
+                  onChange={(e) => setRol(e.target.value)}
+                  style={{
+                    width: "100%",
+                    padding: "20px 35px 10px 0px", // <- padding-right para espacio al ícono
+                    textAlign: "left",
+                    background: "transparent",
+                    border: "none",
+                    borderBottom: "2px solid #01243a",
+                    outline: "none",
+                    fontSize: "16px",
+                    color: "#01243a",
+                    cursor: "pointer",
+                    appearance: "none",
+                  }}
+                >
+                  <option value="" disabled>
+                    Seleccione un rol
+                  </option>
+                  <option value="Administrador">Administrador</option>
+                  <option value="Tecnico">Técnico</option>
+                  <option value="Vendedor">Vendedor</option>
+                </select>
+
+                <i
+                  className="bi bi-person-fill"
+                  style={{
+                    position: "absolute",
+                    fontSize: "19px",
+                    right: "0px",
+                    top: "50%",
+                    transform: "translateY(-40%)",
+                    color: "#01243a",
+                    pointerEvents: "none", // evita que el clic afecte el select
+                  }}
+                ></i>
               </div>
+
 
               <div className="inj-input-box inj-animation" style={{ "--i": 20, "--j": 4 }}>
                 <input
@@ -90,8 +139,16 @@ const EditarUsuario = ({ cerrarModal, usuarioData }) => {
                   value={contraseña}
                   onChange={(e) => setContraseña(e.target.value)}
                 />
-                <label>Contraseña</label>
-                <i className="bi bi-lock-fill"></i>
+                <label>Contraseña </label>
+                <i className="bi bi-lock-fill" style={{
+                  position: "absolute",
+                  fontSize: "19px",
+                  right: "0px",
+                  top: "50%",
+                  transform: "translateY(-40%)",
+                  color: "#01243a",   // 🔹 aquí lo fuerzas a este color
+                  pointerEvents: "none",
+                }}></i>
               </div>
 
               <button type="submit" className="inj-btn inj-animation" style={{ "--i": 21, "--j": 4 }}>
@@ -122,6 +179,7 @@ const EditarUsuario = ({ cerrarModal, usuarioData }) => {
         </div>
       </div>
     </div>
+       </>
   );
 };
 

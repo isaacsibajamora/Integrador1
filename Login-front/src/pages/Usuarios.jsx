@@ -79,6 +79,79 @@ const Usuarios = () => {
 
   return (
     <>
+  <style>{`
+    /* ===== Botón "Nuevo Usuario" ===== */
+    .btn-azul {
+      background: var(--verde-principal);
+      border: none;
+      border-radius: 5px;
+      color: var(--blanco);
+      padding: 8px 16px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-azul:hover {
+      background: #adbe3bff;
+      transform: translateY(-2px);
+    }
+
+    /* ===== Botón Editar ===== */
+    .btn-azul-mini {
+      background: var(--azul-principal);
+      border: none;
+      border-radius: 5px;
+      color: var(--blanco);
+      padding: 6px 12px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-azul-mini:hover {
+      background: var(--azul-oscuro);
+      transform: translateY(-1px);
+    }
+
+    /* ===== Botón Eliminar ===== */
+    .btn-celeste-mini {
+      background: var(--verde-principal);
+      border: none;
+      border-radius: 5px;
+      color: var(--blanco);
+      padding: 6px 12px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-celeste-mini:hover {
+      background: #adbe3bff;;
+      color: var(--blanco);
+      transform: translateY(-1px);
+    }
+
+    /* ===== Tabla de Usuarios ===== */
+    .tabla-personalizada {
+      border-radius: 5px;
+      overflow: hidden;
+      font-size: 15px;
+      border: 1px solid #dee2e6;
+    }
+
+ 
+  .rol-badge {
+    background: var(--azul-principal); /* fondo acorde a tu paleta */
+    color: var(--blanco);              /* texto blanco */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+
+  `}</style>
+
+    
       <Navbar rol={rol} abrirModal={abrirModal} />
       <Menu />
 
@@ -133,7 +206,8 @@ const Usuarios = () => {
                     <tr key={u.users}>
                       <td>{u.users}</td>
                       <td className="text-center">
-                        <span className="badge text-dark">{u.rol}</span>
+                        <span className="rol-badge">{u.rol}</span>
+
                       </td>
                       <td className="text-center">
                         <div className="d-inline-flex gap-1">

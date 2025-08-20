@@ -103,12 +103,12 @@ const Registrar = ({ cerrarModal }) => {
                   <option value="Tecnico">Técnico</option>
                   <option value="Vendedor">Vendedor</option>
                 </select>
-                
+
                 <i
                   className="bi bi-person-fill"
                   style={{
                     position: "absolute",
-                     fontSize: "19px",
+                    fontSize: "19px",
                     right: "0px",
                     top: "50%",
                     transform: "translateY(-40%)",
