@@ -120,11 +120,11 @@ const Usuarios = () => {
             </div>
           ) : usuarios.length > 0 ? (
             <div className="table-responsive">
-              <table className="table table-hover table-bordered align-middle w-100">
+              <table className="table table-hover table-bordered align-middle w-100 tabla-personalizada">
                 <thead className="table-dark">
                   <tr>
-                    <th>Usuario</th>
-                    <th>Rol</th>
+                    <th className="text-center">Usuario</th>
+                    <th className="text-center">Rol</th>
                     <th className="text-center">Acciones</th>
                   </tr>
                 </thead>
@@ -132,7 +132,7 @@ const Usuarios = () => {
                   {usuarios.map((u) => (
                     <tr key={u.users}>
                       <td>{u.users}</td>
-                      <td>
+                      <td className="text-center">
                         <span className="badge text-dark">{u.rol}</span>
                       </td>
                       <td className="text-center">

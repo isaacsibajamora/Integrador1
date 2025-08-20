@@ -10,16 +10,18 @@ const Menu = () => {
   // Estado para el modal de acceso restringido
   const [modalVisible, setModalVisible] = useState(false);
 
-  const manejarUsuariosClick = (e) => {
-    e.preventDefault();
-    if (rol === 1) {
-      navigate("/usuarios");
-    } else {
-      setModalVisible(true);
-      // Cierra el modal automáticamente después de 2 segundos
-      setTimeout(() => setModalVisible(false), 2000);
-    }
-  };
+const manejarUsuariosClick = (e) => {
+  e.preventDefault();
+  const rolActual = localStorage.getItem('rol'); // Leer desde localStorage
+  if (rolActual === 'Administrador') {
+    navigate("/usuarios");
+  } else {
+    setModalVisible(true);
+    setTimeout(() => setModalVisible(false), 2000);
+  }
+};
+
+
 
   return (
     <>

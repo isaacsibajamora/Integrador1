@@ -6,6 +6,7 @@ const Registrar = ({ cerrarModal }) => {
   const [usuario, setUsuario] = useState('');
   const [rol, setRol] = useState('');
   const [contraseña, setContraseña] = useState('');
+  const [mostrar, setMostrar] = useState(false); // <--- Estado para mostrar/ocultar contraseña
   const [mensaje, setMensaje] = useState('');
 
   const manejarSubmit = async (e) => {
@@ -36,11 +37,16 @@ const Registrar = ({ cerrarModal }) => {
   };
 
   return (
-    <div className="modal show" onClick={(e) => {
-      if (e.target.classList.contains('modal')) cerrarModal();
-    }}>
+    <div
+      className="modal show"
+      onClick={(e) => {
+        if (e.target.classList.contains('modal')) cerrarModal();
+      }}
+    >
       <div className="modal-content">
-        <span className="close" onClick={cerrarModal}>&times;</span>
+        <span className="close" onClick={cerrarModal}>
+          &times;
+        </span>
 
         <div className="inj-wrapper">
           <span className="inj-bg-animate"></span>
@@ -68,26 +74,80 @@ const Registrar = ({ cerrarModal }) => {
                 <i className="bi bi-person-fill"></i>
               </div>
 
-              <div className="inj-input-box inj-animation" style={{ "--i": 18, "--j": 3 }}>
-                <input
-                  type="text"
+              <div
+                className="inj-input-box inj-animation"
+                style={{ "--i": 18, "--j": 3, position: "relative" }}
+              >
+                <select
                   required
                   value={rol}
                   onChange={(e) => setRol(e.target.value)}
-                />
-                <label>Rol</label>
-                <i className="bi bi-person-fill"></i>
+                  style={{
+                    width: "100%",
+                    padding: "20px 35px 10px 0px", // <- padding-right para espacio al ícono
+                    textAlign: "left",
+                    background: "transparent",
+                    border: "none",
+                    borderBottom: "2px solid #01243a",
+                    outline: "none",
+                    fontSize: "16px",
+                    color: "#01243a",
+                    cursor: "pointer",
+                    appearance: "none",
+                  }}
+                >
+                  <option value="" disabled>
+                    Seleccione un rol
+                  </option>
+                  <option value="Administrador">Administrador</option>
+                  <option value="Tecnico">Técnico</option>
+                  <option value="Vendedor">Vendedor</option>
+                </select>
+                
+                <i
+                  className="bi bi-person-fill"
+                  style={{
+                    position: "absolute",
+                     fontSize: "19px",
+                    right: "0px",
+                    top: "50%",
+                    transform: "translateY(-40%)",
+                    color: "#01243a",
+                    pointerEvents: "none", // evita que el clic afecte el select
+                  }}
+                ></i>
               </div>
 
-              <div className="inj-input-box inj-animation" style={{ "--i": 20, "--j": 4 }}>
+
+
+
+              {/* Campo de contraseña con "ojito" */}
+              <div
+                className="inj-input-box inj-animation"
+                style={{ "--i": 20, "--j": 4, position: "relative" }}
+              >
                 <input
-                  type="password"
+                  type={mostrar ? 'text' : 'password'}
                   required
                   value={contraseña}
                   onChange={(e) => setContraseña(e.target.value)}
                 />
                 <label>Contraseña</label>
                 <i className="bi bi-lock-fill"></i>
+                <span
+                  onClick={() => setMostrar(!mostrar)}
+                  style={{
+                    position: 'absolute',
+                    right: '20px',
+                    top: '53%',
+                    transform: 'translateY(-50%)',
+                    cursor: 'pointer',
+                    userSelect: 'none',
+                    fontSize: '16px',
+                  }}
+                >
+                  {mostrar ? <i className="bi bi-eye"></i> : <i className="bi bi-eye-slash"></i>}
+                </span>
               </div>
 
               <button

@@ -242,6 +242,18 @@ body{
   max-width: 100%;
 }
 
+.tabla-personalizada td
+ {
+  background-color: #93959741 !important;
+  color: #000000 !important;
+}
+
+
+.tabla-personalizada th {
+  background-color: #00699e !important;
+  color: #ffffff !important;
+}
+
 /* Badge más grande si querés */
 .badge {
   font-size: 0.9rem;
@@ -257,6 +269,27 @@ body{
 .table.table-bordered td {
   border-color: #0000005e !important; /* bordes de las celdas */
 }
+
+/* Estilo para que el select se vea igual que los inputs */
+.inj-select {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #01243a;
+  -webkit-appearance: none; /* Quitar estilo por defecto en Safari/Chrome */
+  -moz-appearance: none; /* Quitar estilo por defecto en Firefox */
+  appearance: none; /* Estilo uniforme */
+  cursor: pointer;
+}
+
+/* Para que el label funcione igual que con los inputs */
+.inj-input-box.inj-animation label {
+  pointer-events: none;
+}
+
 
 
 .btn::before{
