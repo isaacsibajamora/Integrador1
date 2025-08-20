@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../style/style1.css';
+import '../style/producto.css';
 import logo from '../img/injacom-logo-sinfondo.png';
 import { Link, useNavigate } from 'react-router-dom';
 
